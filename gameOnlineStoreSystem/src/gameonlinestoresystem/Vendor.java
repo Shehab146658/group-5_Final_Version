@@ -40,10 +40,7 @@ public class Vendor implements Observer {
     }
     public void updateItem(String itemID)
     {
-        for (int i=0;i<items.size();i++)
-        {
-            items.get(i).setItemID(itemID);
-        }
+        
     }
     public void deleteItem(String itemID)
     {

@@ -19,149 +19,44 @@ import java.util.Scanner;
  */
 public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
 
-    private final Customer customer;
-    private final Vendor vendor;
-    private final systemAdmin admin;
-    private final customerService service;
+   
+   // private final Vendor vendor;
+    //private final systemAdmin admin;
+    //private final customerService service;
+    //private final AccountManager manager;
 
-    public clientFacadee(Customer customer,Vendor vendor,systemAdmin admin,customerService service) throws RemoteException {
-        this.customer=customer;
+  /*  public clientFacadee(AccountManager manager,Vendor vendor,systemAdmin admin,customerService service) throws RemoteException {
+        this.manager=manager;
         this.vendor=vendor;
         this.admin=admin;
-        this.service=service;
-    }
+        this.service=service;*/
+   // }
 
-   
-
-    @Override
-    public void viewItems(String itemID) {
-        View_item viewer = systemAdmin.getInstanceOfAdmin();
-        viewer.viewItems();    
-    }
-
-    @Override
-    public void createTickect(String customerID, String Description) {
+    public clientFacadee() throws RemoteException {
         
     }
+  
 
     @Override
-    public void update(Observable o, Object o1) {
-    }
-
-    @Override
-    public void notify(String customerID, String vendorID, String customerServiceID) {
-    }
-
-    @Override
-    public void addAccounts(String customerID, String vendorID, String customerServiceID) {
-    }
-
-    @Override
-    public void removeAccounts(String customerID, String vendorID, String customerServiceID) {
-    }
-
-    @Override
-    public void updateAccounts(String customerID, String vendorID, String customerServiceID) {
+    public String notify(String customerID, String vendorID, String customerServiceID) throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void updateItem(String itemID, Item I) {
+    public String verifyLogin() throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deleteItem(String itemID) {
+    public String Login() throws RemoteException {
+           return "Logged In Sucessfully";
+    }
+
+    @Override
+    public String update() throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 
-    @Override
-    public void approveItem(String itemID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setOrderInfo(String orderID, String orderStatus) {
-        
-    }
-
-    @Override
-    public String getOrderInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void updateStatus(String status) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void pay() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void checkOut() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void placeOrder() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void addTocart() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void viewCart() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void viewItemsDetails(Item i, Category c) {
-         c.getCategoryID();
-        i.getItemID();
-        i.getRate();
-    }
-
-    @Override
-    public void rateItem(Item i, int rate) {
-          i.getItemID();
-        switch(rate)
-        {
-            case 1:
-              
-                System.out.println("very bad");
-                break;
-            case 2:
-                System.out.println("bad");
-                break;
-            case 3:
-                System.out.println("Good");
-                break;
-            case 4:
-                System.out.println("very good");
-                break;
-            case 5:
-                System.out.println("Perfect");
-                break;
-        }
-    }
-
-    @Override
-    public void rate(Item i) {
-        int rate;
-       Scanner S=new Scanner(System.in); 
-       rate=S.nextInt();
-       i.rateItem(i,rate);
-    }
-
-    @Override
-    public Item getChild(Item i, Category c) {
-         i.viewItemsDetails(i, c);
-           return i;
-    }
+    
 }

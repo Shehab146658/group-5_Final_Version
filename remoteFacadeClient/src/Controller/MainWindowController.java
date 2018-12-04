@@ -30,7 +30,7 @@ public class MainWindowController {
         this.gui=gui;
         this.r=r;
         // This registers the button with our action listener below (the inner class)
-     //  gui.getjButton1().addActionListener();
+      gui.getjButton1().addActionListener(new GetCustomerBtnAction());
     }
       class GetCustomerBtnAction implements ActionListener {
 
@@ -38,8 +38,9 @@ public class MainWindowController {
         public void actionPerformed(ActionEvent ae) {
             try{
                 
-                ClientFacade facade= (ClientFacade)r.lookup("customer");
-               String customer = gui.getjTextField1().getText();
+               ClientFacade facade= (ClientFacade)r.lookup("customer");
+              // String customer = gui.getjTextField1().getText();
+                gui.getjLabel1().setText(facade.Login());
 
                 
                 

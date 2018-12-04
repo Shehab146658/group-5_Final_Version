@@ -9,6 +9,7 @@ package remotefacadecustomerclient;
  *
  * @author Dell
  */
+import Controller.MainWindowController;
 import RMI.ClientFacade;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -20,19 +21,19 @@ public class RemoteFacadeCustomerClient {
      * @param args the command line arguments
      */
     public static void main(String[] args)throws RemoteException,NotBoundException  {
+        CustomerLoginGUI customer=new CustomerLoginGUI();
+        customer.setLocationRelativeTo(null); // This makes the window appears centered
+        customer.setVisible(true); // This shows the gui
         // TODO code application logic here
           // Connect to RMI Registry
         Registry reg = LocateRegistry.getRegistry(1099);
          // Get the remote facade reference
-       ClientFacade customer = (ClientFacade) reg.lookup("customer");
-       ClientFacade vendor = (ClientFacade) reg.lookup("vendor");
-       ClientFacade admin = (ClientFacade) reg.lookup("admin");
-       ClientFacade service = (ClientFacade) reg.lookup("service");
+       MainWindowController control = new MainWindowController(customer, reg);
        
         
         // Print 
-        System.out.println("The items are: ");
-        customer.viewItems("1");
+       // System.out.println("The items are: ");
+         
        
 
        
