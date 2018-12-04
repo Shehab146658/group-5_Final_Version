@@ -33,7 +33,10 @@ public class Vendor implements Observer {
     {
         
     }
-    public void addItem(String itemID)
+    
+    
+    
+    public void addItem()
     {
         item_adder add = systemAdmin.getInstanceOfAdmin();
         add.addItems();

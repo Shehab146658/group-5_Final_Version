@@ -12,20 +12,23 @@ package gameonlinestoresystem;
 */
 public class Item implements ItemComponent  {
 
-public String itemID;
-public int rate;
-public shoppingCart s1;
+private static int itemID;
+private String name; 
+private int rate;
+private shoppingCart s1;
+private int price;
 
-public Item(String itemID, int rate) {
-    this.itemID = itemID;
-    this.rate = rate;
+public Item(int price, String name) {
+    this.itemID = itemID+1;
+    this.price = price;
+    this.name = name;
 }
 
-public String getItemID() {
+public int getItemID() {
     return itemID;
 }
 
-public void setItemID(String itemID) {
+public void setItemID(int itemID) {
     this.itemID = itemID;
 }
 
@@ -36,6 +39,30 @@ public int getRate() {
 public void setRate(int rate) {
     this.rate = rate;
 }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public shoppingCart getS1() {
+        return s1;
+    }
+
+    public void setS1(shoppingCart s1) {
+        this.s1 = s1;
+    }
 
 
 
