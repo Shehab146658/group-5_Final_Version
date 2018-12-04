@@ -46,7 +46,7 @@ final ItemComponent item;
     }
 
     public void add(Item i) {
-       if(i.getItemID()==0)
+       if(i.getItemID()==null)
        {
            add(i);
        }
@@ -56,7 +56,7 @@ final ItemComponent item;
    
     
     public void remove(Item i) {
-          if(i.getItemID()!=0)
+          if(i.getItemID()!=null)
           {
               remove(i);
           }
@@ -98,8 +98,6 @@ final ItemComponent item;
               c.getCategoryID();
               i.getItemID();
               i.getRate();
-              i.getPrice();
-              
             }
 
             @Override

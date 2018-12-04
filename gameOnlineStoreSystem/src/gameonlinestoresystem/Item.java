@@ -10,26 +10,23 @@ package gameonlinestoresystem;
 *
 * @author Dell
 */
-//shehab testing
 public class Item implements ItemComponent  {
 
-private int itemID=0;
-private int rate;
-private String name;
-private shoppingCart s1;
-private int price;
+public String itemID;
+public int rate;
+public shoppingCart s1;
 
-    public Item( int price , String name) {
-        this.itemID = itemID+1;
-        this.price = price;
-        this.name = name;
-    }
+public Item(String itemID, int rate) {
+    this.itemID = itemID;
+    this.rate = rate;
+}
 
-
-
-
-public int getItemID() {
+public String getItemID() {
     return itemID;
+}
+
+public void setItemID(String itemID) {
+    this.itemID = itemID;
 }
 
 public int getRate() {
@@ -39,22 +36,6 @@ public int getRate() {
 public void setRate(int rate) {
     this.rate = rate;
 }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 
 
@@ -91,7 +72,6 @@ public void viewItemsDetails(Item i, Category c) {
     c.getCategoryID();
     i.getItemID();
     i.getRate();
-    i.getPrice();
 }
 }
 

@@ -60,20 +60,27 @@ public class systemAdmin implements Observer , View_item , item_adder , delete_i
    }
    
 
-   public void updateItem(int itemID, String name , int price)
+   public void updateItem(String itemID,Item i)
    {
-       items.get(itemID).setName(name);
-       items.get(itemID).setPrice(price);
+       if(i.itemID == itemID)
+       {
+           i.setItemID(null);
+           i.setRate(0);
+       }
    }
-   
     public void approveItem(String itemID)
     {
         
     }
-    public void deleteItem(int itemsID)
+    public void deleteItem(String itemsID)
     {
-        
-                items.remove(itemsID);
+        for(int i =0; i < items.size();i++)
+        {
+            if(items.get(i).itemID == itemsID  )
+            {
+                items.remove(i);
+            }
+        }
     }
      
     
@@ -84,20 +91,13 @@ public class systemAdmin implements Observer , View_item , item_adder , delete_i
 
     @Override
     public void viewItems() {
-        for(int i = 0; i <  items.size();i++)
-        {
-            System.out.println("Item ID " + items.get(i).getItemID() + "Item Price" + items.get(i).getPrice());
-        }
-    }
-  
-    @Override
-    public void addItems(Item i) {
-        items.add(i);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deleteItem(String itemsID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addItems() 
+    {
+       
     }
     
 }
