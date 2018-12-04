@@ -32,28 +32,8 @@ public class Main {
         db.close();
     }
     
-    /*public void update() {
-        DB db = new DB();
-        
-        Student s = db.getStudentByMail("mohamed@bue.edu.eg");
-        
-        Course c = new Course("23", "Introduction to Java");
-        
-        s.addCourse(c);
-        
-        db.updateStudent(s);
-        
-        db.close();
-    }
-    
-    public void delete() {
-        DB db = new DB();
-        db.deleteStudent("youssef.negm@bue.edu.eg");
-    }
-    */  
-    
     public static void main(String[] args) {
-        insert(); //comment this line to avoid multiple insertions
+        //insert(); 
 
         DB db = new DB();
        

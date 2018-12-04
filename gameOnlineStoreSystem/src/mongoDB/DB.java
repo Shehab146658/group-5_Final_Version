@@ -30,11 +30,8 @@ public class DB {
 
         // Initialize
         client = new MongoClient();
-        database = client.getDatabase("ogs"); // Database name
+        database = client.getDatabase("GS"); // Database name
         collection = database.getCollection("category"); // Collection name
-        
-        collections.set(1, database.listCollections());
-        collections.toArray();
     }
 
     public void insertCategory(Category c) {

@@ -22,7 +22,7 @@ public class GameOnlineStoreSystem {
     /**
      * @param args the command line arguments
      */
-    private static void insert() {
+    private static void dbInsertion() {
         DB db = new DB();
         Category action = new Category("1", "action");
         Category arcade = new Category("2", "arcade");
@@ -57,30 +57,10 @@ public class GameOnlineStoreSystem {
         
         // Outputs that the server is ready
         System.out.println("The server is ready");
-        
-    
-    /*public void update() {
-        DB db = new DB();
-        
-        Student s = db.getStudentByMail("mohamed@bue.edu.eg");
-        
-        Course c = new Course("23", "Introduction to Java");
-        
-        s.addCourse(c);
-        
-        db.updateStudent(s);
-        
-        db.close();
-    }
-    
-    public void delete() {
-        DB db = new DB();
-        db.deleteStudent("youssef.negm@bue.edu.eg");
-    }
-    */  
+       
     
  
-        insert(); //comment this line to avoid multiple insertions
+        //dbInsertion();
 
         DB db = new DB();
        
