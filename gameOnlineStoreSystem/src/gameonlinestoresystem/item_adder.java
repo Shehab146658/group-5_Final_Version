@@ -10,5 +10,5 @@ package gameonlinestoresystem;
  * @author Omar
  */
 public interface item_adder {
-    void addItems();
+    void addItems(Item i);
 }

@@ -10,5 +10,5 @@ package gameonlinestoresystem;
  * @author meran
  */
 public interface delete_items {
-    public void deleteItem(String itemsID);
+    public void deleteItem(int itemsID);
 }

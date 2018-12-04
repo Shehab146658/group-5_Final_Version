@@ -10,6 +10,7 @@ package gameonlinestoresystem;
  * @author Dell
  */
 import java.util.*;
+import java.util.Scanner;
 public class Vendor implements Observer {
     public String SSN; 
    
@@ -33,16 +34,25 @@ public class Vendor implements Observer {
     {
         
     }
-    public void addItem(String itemID)
+    
+    
+    
+    public void addItem()
     {
         item_adder add = systemAdmin.getInstanceOfAdmin();
-        add.addItems();
+        System.out.println("Enter product price");
+        Scanner sc = new Scanner(System.in);
+        int p = sc.nextInt();
+        System.out.println("Enter product name");
+        String n = sc.nextLine();
+        Item i = new Item(p,n);
+        add.addItems(i);
     }
-    public void updateItem(String itemID)
+    public void updateItem(int itemID)
     {
         
     }
-    public void deleteItem(String itemID)
+    public void deleteItem(int itemID)
     {
         delete_items deleter = systemAdmin.getInstanceOfAdmin();
         deleter.deleteItem(itemID);
