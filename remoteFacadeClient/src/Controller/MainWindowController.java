@@ -17,20 +17,21 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import RMI.ClientFacade;
-import remotefacadecustomerclient.CustomerLoginGUI;
+import remotefacadeClient.LoginGUI;
 
 public class MainWindowController {
 
-    CustomerLoginGUI gui;
+    LoginGUI gui;
     Registry r;
     
-      public MainWindowController(CustomerLoginGUI gui, Registry r)
+      public MainWindowController(LoginGUI gui, Registry r)
     {
         
         this.gui=gui;
         this.r=r;
         // This registers the button with our action listener below (the inner class)
       gui.getjButton1().addActionListener(new GetCustomerBtnAction());
+      gui.getButton2().addActionListener(new GetCustomerBtnAction());
     }
       class GetCustomerBtnAction implements ActionListener {
 
@@ -38,8 +39,11 @@ public class MainWindowController {
         public void actionPerformed(ActionEvent ae) {
             try{
                 
-               ClientFacade facade= (ClientFacade)r.lookup("customer");
-              // String customer = gui.getjTextField1().getText();
+               ClientFacade facade= (ClientFacade)r.lookup("username");
+                ClientFacade facade1= (ClientFacade)r.lookup("password");
+               ClientFacade facade2=(ClientFacade)r.lookup("Cancel");
+              String username= gui.getjTextField1().getText();
+              String password=gui.getjTextField2().getText();
                 gui.getjLabel1().setText(facade.Login());
 
                 

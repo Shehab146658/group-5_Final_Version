@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package remotefacadecustomerclient;
+package remotefacadeClient;
 
 /**
  *
@@ -21,7 +21,7 @@ public class RemoteFacadeCustomerClient {
      * @param args the command line arguments
      */
     public static void main(String[] args)throws RemoteException,NotBoundException  {
-        CustomerLoginGUI customer=new CustomerLoginGUI();
+        LoginGUI customer=new LoginGUI();
         customer.setLocationRelativeTo(null); // This makes the window appears centered
         customer.setVisible(true); // This shows the gui
         // TODO code application logic here
