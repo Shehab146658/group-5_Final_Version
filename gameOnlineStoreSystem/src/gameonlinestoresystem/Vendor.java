@@ -33,17 +33,15 @@ public class Vendor implements Observer {
     {
         
     }
-    public void addItem(String itemID)
+    public void addItem()
     {
         item_adder add = systemAdmin.getInstanceOfAdmin();
-        add.addItems();
+        Item i = new Item(55,"fifa");
+        add.addItems(i);
     }
     public void updateItem(String itemID)
     {
-        for (int i=0;i<items.size();i++)
-        {
-            items.get(i).setItemID(itemID);
-        }
+        
     }
     public void deleteItem(String itemID)
     {
