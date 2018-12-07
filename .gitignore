@@ -3,3 +3,17 @@
 /remoteFacadeClient/build/
 /gameOnlineStoreSystem/build/
 *.properties
+gameOnlineStoreSystem/nbproject/project.properties
+gameOnlineStoreSystem/src/gameonlinestoresystem/OrderManagment.java
+gameOnlineStoreSystem/nbproject/project.properties
+gameOnlineStoreSystem/nbproject/project.properties
+gameOnlineStoreSystem/nbproject/project.properties
+*.properties
+gameOnlineStoreSystem/nbproject/project.properties
+gameOnlineStoreSystem/nbproject/project.properties
+gameOnlineStoreSystem/nbproject/project.properties
+gameOnlineStoreSystem/nbproject/private/private.xml
+remoteFacadeClient/nbproject/private/private.xml
+remoteFacadeClient/nbproject/private/private.xml
+gameOnlineStoreSystem/nbproject/project.properties
+*.xml
