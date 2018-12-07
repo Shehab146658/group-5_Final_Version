@@ -12,11 +12,15 @@ package gameonlinestoresystem;
 import java.util.*;
 public class Category implements ItemComponent {
 public String categoryID;
+private String categoryName;
 ArrayList<Item> items=new ArrayList<Item>();
 
 final ItemComponent item;
-    public Category(String categoryID) {
+
+    public Category(String categoryID,String categoryName)
+    {
         this.categoryID = categoryID;
+        this.categoryName = categoryName;
         item= new ItemComponent() {
 
             @Override
@@ -28,6 +32,15 @@ final ItemComponent item;
         };
        
     }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+    
 
     public String getCategoryID() {
         return categoryID;
@@ -104,6 +117,21 @@ final ItemComponent item;
             public void rate(Item i) {
                  i.rateItem(i, i.getRate());
             }
+
+    @Override
+    public String toString() {
+        
+        String result = "categoryID=" + categoryID 
+                + ",  categoryName=" + categoryName
+                + ", items=" + items
+                + ", item=" + item + '}';
+        for (int i = 0; i < items.size(); i++) {
+            result += "\n   Course ID: " + items.get(i).getItemID()
+                    + "\n   Course Name: " + items.get(i).getName()
+                    + "\n";
+        }
+        return result;
+    }
 
            
 
