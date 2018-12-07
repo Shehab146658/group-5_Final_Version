@@ -22,26 +22,68 @@ import remotefacadeClient.AdminForm;
 import remotefacadeClient.LoginGUI;
 import remotefacadeClient.VendorForm;
 import remotefacadeClient.customerServiceForm;
+import remotefacadeClient.ItemsGUI;
+
 
 public class MainWindowController {
 
     LoginGUI gui;
     Registry r;
+    ItemsGUI items;
+    VendorForm vendor;
     
-      public MainWindowController(LoginGUI gui, Registry r)
-    {
-        
+      public MainWindowController(LoginGUI gui, Registry r, ItemsGUI items, VendorForm vendor)
+    { 
         this.gui=gui;
         this.r=r;
+        this.items = items;
+        this.vendor = vendor;
         // This registers the button with our action listener below (the inner class)
       gui.getjButton1().addActionListener(new GetCustomerBtnAction());
-     gui.getButton2().addActionListener(new Cancelbtn());
+      gui.getButton2().addActionListener(new Cancelbtn());
+      vendor.getjButton1().addActionListener(new GetVendorBtnAction());
+      vendor.getjButton3().addActionListener(new GetVendorBtnAction());
+      vendor.getjButton6().addActionListener(new GetVendorBtnAction());
+
+    }
+      
+    class GetVendorBtnAction implements ActionListener
+            {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if(vendor.getjButton1().isSelected())
+            {
+                ItemsGUI items = new ItemsGUI();
+                
+                
+            }
+            else if(vendor.getjButton3().isSelected())
+            {
+                ItemsGUI items = new ItemsGUI();
+                items.setVisible(true);
+                vendor.setVisible(false); 
+            }
+            else if(vendor.getjButton6().isSelected())
+            {
+                vendor.setVisible(false); 
+                gui.setVisible(true);
+            }
+            
+        }
+                
+    }
+
+    public MainWindowController(LoginGUI GUI, Registry reg) {
+
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
       public String Cancel()
       {
           System.exit(0);
           return " ";
       }
+      
       class Cancelbtn implements ActionListener
         {
 
