@@ -33,7 +33,6 @@ public class RemoteControllerClient {
          // Get the remote facade reference
        MainWindowController control = new MainWindowController(GUI, reg);
        
-        
         // Print 
        // System.out.println("The items are: ");
          
