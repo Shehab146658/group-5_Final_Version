@@ -2,3 +2,4 @@
 /remoteFacadeClient/nbproject/private/
 /remoteFacadeClient/build/
 /gameOnlineStoreSystem/build/
+*.properties
