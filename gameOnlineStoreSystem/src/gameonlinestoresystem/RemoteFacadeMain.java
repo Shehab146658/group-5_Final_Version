@@ -28,6 +28,7 @@ public class RemoteFacadeMain {
         
         // Publish to client
         Registry reg = LocateRegistry.createRegistry(1099);
+        reg.bind("facade", new clientFacadee(manager,vendor,admin,service));
         
         System.out.println("Server is ready");
         

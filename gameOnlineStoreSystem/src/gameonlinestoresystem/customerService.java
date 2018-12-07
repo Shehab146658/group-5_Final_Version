@@ -12,14 +12,24 @@ package gameonlinestoresystem;
 import java.util.*;
 public class customerService implements Observer , AddTicket  {
     public String SSN;
+    private static int observeridtracker;
+    private int observerid;
+    private Subject s = new Order();
     ArrayList<Ticket> Tickets = new ArrayList<Ticket>();
     ArrayList<Item> items = new ArrayList<Item>();
     public customerService(String SSN) {
         this.SSN = SSN;
     }
 
+    public customerService(Subject sub) {
+        this.s = sub;
+        this.observerid = ++observeridtracker;
+        s.addObserver(this);
+    }
+
     public customerService() {
     }
+    
 
     public String getSSN() {
         return SSN;
@@ -56,8 +66,11 @@ public class customerService implements Observer , AddTicket  {
     }
 
     @Override
-    public void update(Observable o, Object o1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(String orderstatus) {
+        OrderState stat = new Order();
+        
+        
+
     }
 
    

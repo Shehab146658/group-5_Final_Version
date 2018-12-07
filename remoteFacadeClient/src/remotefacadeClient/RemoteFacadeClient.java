@@ -23,9 +23,8 @@ public class RemoteFacadeClient {
 
         // Get the remote facade reference
         
-        ClientFacade Admin= (ClientFacade) reg.lookup("Admin");
-        ClientFacade customerService = (ClientFacade) reg.lookup("customer service");
-        ClientFacade vendor = (ClientFacade) reg.lookup("vendor");
+        ClientFacade Admin= (ClientFacade) reg.lookup("facade");
+        
         // Print items
           System.out.println("items viewed by Admin:");
           System.out.println(Admin.viewItem());

@@ -5,12 +5,11 @@
  */
 package gameonlinestoresystem;
 
-import java.util.Observable;
 
 /**
  *
  * @author shebo
  */
 public interface Observer {
-    public void update(Observable o, Object o1 );
+    public void update(String orderstatus );
 }
