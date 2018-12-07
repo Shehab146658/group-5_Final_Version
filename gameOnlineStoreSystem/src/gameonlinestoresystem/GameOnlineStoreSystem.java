@@ -22,12 +22,19 @@ public class GameOnlineStoreSystem {
      */
     public static void main(String[] args)throws RemoteException, AlreadyBoundException  {
         // TODO code application logic here
-        ClientFacade facade=new clientFacadee();
+        AccountManager manager=new AccountManager();
+        Vendor vendor=new Vendor(" ");
+        systemAdmin admin= systemAdmin.getInstanceOfAdmin();
+        customerService service=new customerService();
+        
+        ClientFacade facade=new clientFacadee(manager,vendor,admin,service);
          // An RMI Registry initialized on port 1099
         Registry reg = LocateRegistry.createRegistry(1099);
         
         // Our remote object facade is binded to the name "customer"
-        reg.bind("customer",facade );
+        reg.bind("username",facade );
+        reg.bind("password", facade);
+        reg.bind("Cancel", facade);
         
         // Outputs that the server is ready
         System.out.println("The server is ready");

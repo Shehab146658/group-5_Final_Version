@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
 
     
-  /*  private final Vendor vendor;
+    private final Vendor vendor;
     private final systemAdmin admin;
     private final customerService service;
     private final AccountManager manager;
@@ -29,11 +29,8 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
         this.vendor=vendor;
         this.admin=admin;
         this.service=service;
-    }*/
-
-    public clientFacadee() throws RemoteException {
-        
     }
+
 
   
        @Override
@@ -43,7 +40,7 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
 
     @Override
     public String verifyLogin() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   return "Logged In Sucessfully";
     }
 
     @Override
@@ -54,6 +51,26 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
 
     @Override
     public String update() throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String addItem() throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String viewItem() throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String deleteItem() throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String updateItem() throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
