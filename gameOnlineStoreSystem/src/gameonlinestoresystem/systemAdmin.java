@@ -14,6 +14,8 @@ import java.util.Observable;
  */
 public class systemAdmin implements Observer , View_item , item_adder , delete_items{
     private static systemAdmin Admin;
+    private static int observeridtracker;
+    private int observerid;
     ArrayList<Item> items = new ArrayList<Item>();
     private systemAdmin(){}
     public static systemAdmin getInstanceOfAdmin()
@@ -77,11 +79,7 @@ public class systemAdmin implements Observer , View_item , item_adder , delete_i
     }
      
     
-    @Override
-    public void update(Observable o, Object o1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+  
     @Override
     public void viewItems() {
         for(int i = 0; i <  items.size();i++)
@@ -89,14 +87,21 @@ public class systemAdmin implements Observer , View_item , item_adder , delete_i
             System.out.println("Item ID " + items.get(i).getItemID() + "Item Price" + items.get(i).getPrice());
         }
     }
+
+    @Override
+    public void update(String orderstatus) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addItems(Item i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
   
     
    
 
-    @Override
-    public void addItems(Item i) {
-        items.add(i);
-    }
+   
 
     
     
