@@ -17,6 +17,7 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import RMI.ClientFacade;
+import RMI.dbManagerINT;
 import javax.swing.JOptionPane;
 import remotefacadeClient.AdminForm;
 import remotefacadeClient.LoginGUI;
@@ -46,6 +47,10 @@ public class MainWindowController {
       vendor.getjButton6().addActionListener(new GetVendorBtnAction());
 
     }
+
+    public MainWindowController(Registry r) {
+        this.r = r;
+    }
       
     class GetVendorBtnAction implements ActionListener
             {
@@ -74,16 +79,18 @@ public class MainWindowController {
                 
     }
 
-    public MainWindowController(LoginGUI GUI, Registry reg) {
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
       public String Cancel()
       {
           System.exit(0);
           return " ";
       }
       
+      public void addItemManager() throws RemoteException, NotBoundException
+      {
+          dbManagerINT dbMan=(dbManagerINT)r.lookup("database");
+          dbMan.addNewItem(1000, "test");
+      }
       class Cancelbtn implements ActionListener
         {
 
@@ -102,6 +109,7 @@ public class MainWindowController {
         }
           
       }
+      
       class GetCustomerBtnAction implements ActionListener {
 
         @Override
@@ -110,6 +118,7 @@ public class MainWindowController {
                 
                ClientFacade facade= (ClientFacade)r.lookup("username");
                 ClientFacade facade1= (ClientFacade)r.lookup("password");
+                
                  // gui.getjLabel5().setText(facade.Login());
             
               
@@ -117,6 +126,7 @@ public class MainWindowController {
               {
                 String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
+                
                  gui.getjLabel2().setText(facade.Login());
                  JOptionPane.showMessageDialog(gui, "Login Successful, Welcome ");
                  System.out.println("Customer Logged in sucessfully");

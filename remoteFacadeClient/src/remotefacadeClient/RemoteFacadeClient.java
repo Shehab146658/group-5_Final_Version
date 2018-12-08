@@ -16,6 +16,7 @@ import java.rmi.registry.Registry;
 import RMI.ClientFacade;
 
 public class RemoteFacadeClient {
+    
      public static void main(String[] args) throws RemoteException, NotBoundException {
 
         // Connect to RMI Registry

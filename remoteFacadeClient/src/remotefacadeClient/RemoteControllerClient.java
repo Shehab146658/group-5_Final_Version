@@ -20,6 +20,7 @@ public class RemoteControllerClient {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args)throws RemoteException,NotBoundException  {
         LoginGUI GUI=new LoginGUI();
         
@@ -30,16 +31,11 @@ public class RemoteControllerClient {
         // TODO code application logic here
           // Connect to RMI Registry
         Registry reg = LocateRegistry.getRegistry(1099);
-         // Get the remote facade reference
-       MainWindowController control = new MainWindowController(GUI, reg);
-       
-        // Print 
-       // System.out.println("The items are: ");
-         
-       
-
-       
         
+         // Get the remote facade reference
+        MainWindowController control = new MainWindowController(reg);
+        control.addItemManager();
+        // Print 
+       // System.out.println("The items are: ");   
     }
-    
 }
