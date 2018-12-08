@@ -27,23 +27,25 @@ public class ItemDataTransferObject  extends UnicastRemoteObject implements item
         return item;
     }
   
-    public String addnewItem(int price, String name)
+    public String addnewItem(int price, String name,int itemID)
     {
         Item i = new Item(price,name);
         db.insertItem(i);
         return"item Inserted Successfully";
     }
-    public String updateItem(int price, String name)
+    public String updateItem(int price, String name,int itemID)
     {
          Item i = new Item(price,name);
         db.updateItem(i, price);
         return"item updated successfully";
     }
-    public String deleteItem(int price, String name){
+    public String deleteItem(int price, String name,int itemID){
          Item i = new Item(price,name);
-         db.deleteItem(i);
+         db.deleteItem(itemID);
          return"item deleted Successfully";
         
     }
+
+    
     
 }

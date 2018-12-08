@@ -56,7 +56,7 @@ public class systemAdmin implements Observer , View_item , item_adder , delete_i
        }  
    }
 
-   public void updateAcc(Customer c,Vendor v, customerService cs, String CustomerID, String vendorSSN, String csID)
+   public void updateAcc(Customer c,Vendor v, customerService cs, int CustomerID, int vendorSSN, int csID)
    {
        DB db = new DB();
        db.updateCustomer(c, csID);

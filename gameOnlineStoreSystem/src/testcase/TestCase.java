@@ -18,7 +18,7 @@ public class TestCase {
                                
     } 
          @Test
-    public void updateTicketTESTING(Ticket c,String id)
+    public void updateTicketTESTING(Ticket c,int id)
     {
         DB db= new DB();
         assertEquals(c,db.getTicketByID(id));
@@ -32,14 +32,14 @@ public class TestCase {
     //}
         
         @Test
-    public void GetTicketTESTING(Ticket c,String id)
+    public void GetTicketTESTING(Ticket c,int id)
     {
         DB db= new DB();
         assertEquals(c,db.getTicketByID(id));
     }
     
         @Test
-    public void deleteshoppingCartTESTING(shoppingCart s)
+    public void deleteshoppingCartTESTING(int s)
     {
         DB db= new DB();            
         assertEquals(true,db.deleteshoppingCart(s) ); 
