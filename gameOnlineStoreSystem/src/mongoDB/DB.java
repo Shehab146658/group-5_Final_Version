@@ -276,7 +276,7 @@ public class DB {
         }
     }
 
-    public Item getItemByID(String id) {
+    public Item getItemByID(int id) {
         Document doc = collectionItem.find(Filters.eq("itemID", id)).first();
         Item result = gson.fromJson(doc.toJson(), Item.class);
         return result;
@@ -349,12 +349,14 @@ public class DB {
         System.out.println("shoppingCart inserted.");
     }
 
-    public void deleteshoppingCart(shoppingCart id) {
+    public boolean deleteshoppingCart(shoppingCart id) {
         boolean result = collectionshoppingCart.deleteOne(Filters.eq("cartID", id)).wasAcknowledged();
         if (result) {
             System.out.println("shoppingCart Deleted.");
+            return true;
         } else {
             System.out.println("shoppingCart wasn't found.");
+            return false;
         }
     }
 
