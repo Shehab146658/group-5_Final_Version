@@ -16,6 +16,7 @@ public class Order implements OrderState , Subject{
     private String OrderStatus;
     private String location;
     private ArrayList<Observer> observers ;
+    private OrderManager mang = new OrderManager();
     
 
     public Order(String OrderID, String OrderStatus, String location) {

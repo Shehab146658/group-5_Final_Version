@@ -11,9 +11,9 @@ package gameonlinestoresystem;
  */
 import java.util.*;
 public class Category implements ItemComponent {
-public String categoryID;
+private String categoryID;
 private String categoryName;
-ArrayList<Item> items=new ArrayList<Item>();
+private ArrayList<Item> items=new ArrayList<Item>();
 
 final ItemComponent item;
 
@@ -26,7 +26,10 @@ final ItemComponent item;
             @Override
             public void rateItem(Item i, int rate) {}
             @Override
-            public void viewItemsDetails(Item i, Category c) {}
+            public void viewItemsDetails(Item i, Category c)
+            {
+                
+            }
             @Override
             public void rate(Item i) {}
         };

@@ -14,6 +14,7 @@ import java.util.Observer;
  */
 public class Customer implements Observer,paymentMethod, OrderState {
     public String customerID;
+    shoppingCart sc = new shoppingCart();
 
     public String getCustomerID() {
         return customerID;
