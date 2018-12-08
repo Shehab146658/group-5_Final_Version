@@ -3,9 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/meran/Desktop/SY/AOOSE/group_5-master/group_5/gameOnlineStoreSystem/src/gameonlinestoresystem/Observer.java</file>
-            <file>file:/C:/Users/meran/Desktop/SY/AOOSE/group_5-master/group_5/gameOnlineStoreSystem/src/gameonlinestoresystem/systemAdmin.java</file>
-            <file>file:/C:/Users/meran/Desktop/SY/AOOSE/group_5-master/group_5/gameOnlineStoreSystem/src/gameonlinestoresystem/Vendor.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/Ticket.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/AccountManager.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/RemoteFacadeMain.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/delete_items.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/OrderState.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/orderDataTransferObject.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/item_adder.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/customerServiceTransferObject.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/clientFacadee.java</file>
+            <file>file:/C:/Users/Omar/Documents/GitHub/group-5_Final_Version/gameOnlineStoreSystem/src/gameonlinestoresystem/OrderManagment.java</file>
         </group>
     </open-files>
 </project-private>

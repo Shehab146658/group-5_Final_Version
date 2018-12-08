@@ -27,6 +27,9 @@ public class shoppingCart {
         this.notes = notes;
     }
 
+    public shoppingCart() {
+    }
+
     public ArrayList<Item> getItems() {
         return items;
     }
