@@ -12,9 +12,13 @@ import java.util.Observer;
  *
  * @author Dell
  */
-public class Customer implements Observer,paymentMethod, OrderState {
+public class Customer extends Person implements Observer,paymentMethod, OrderState {
     public String customerID;
     shoppingCart sc = new shoppingCart();
+
+    public Customer(String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
+        super(address, firstName, lastName, mobileNumber, email, username, password);
+    }
 
     public String getCustomerID() {
         return customerID;
