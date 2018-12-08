@@ -22,8 +22,9 @@ public class GameOnlineStoreSystem {
     /**
      * @param args the command line arguments
      */
-    private static void dbInsertion() {
-        DB db = new DB();
+
+   // private static void dbInsertion() {
+      /*  DB db = new DB();
         Category action = new Category("1", "action");
         Category arcade = new Category("2", "arcade");
         Category sports = new Category("3", "sports");
@@ -45,7 +46,8 @@ public class GameOnlineStoreSystem {
         db.insertCategory(fps);
         
         db.close();
-    }
+    }*/
+
     public static void main(String[] args)throws RemoteException, AlreadyBoundException  {
         // TODO code application logic here
         AccountManager manager=new AccountManager();
@@ -62,21 +64,24 @@ public class GameOnlineStoreSystem {
         reg.bind("password", facade);
         reg.bind("Cancel", facade);
         
+        
+        
+        dbManager manageDB=dbManager.getInstanceOfdbManager();
+        reg.bind("database", manageDB);
+        
         // Outputs that the server is ready
         System.out.println("The server is ready");
-       
-    
- 
         //dbInsertion();
 
-        DB db = new DB();
+      /*  DB db = new DB();
        
         ArrayList<Category> Category = db.getAllCategories();
+=======
+>>>>>>> 4291db015be86f15b33c6b3eeb6555261a97f3ee
         
-        for (int i = 0; i < Category.size(); i++) {
-            System.out.println(Category.get(i).toString());
-        }
         
-    }
+    }*/
     
+
+}
 }

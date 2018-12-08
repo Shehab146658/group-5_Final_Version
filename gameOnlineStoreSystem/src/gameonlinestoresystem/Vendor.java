@@ -12,7 +12,9 @@ package gameonlinestoresystem;
 import java.util.*;
 import java.util.Scanner;
 public class Vendor implements Observer {
-    public String SSN; 
+    private String SSN; 
+    private static int observeridtracker;
+    private int observerid;
    
     public Vendor(String SSN) {
         this.SSN = SSN;
@@ -64,9 +66,11 @@ public class Vendor implements Observer {
     }
 
     @Override
-    public void update(Observable o, Object o1) {
+    public void update(String orderstatus) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 
     
 }

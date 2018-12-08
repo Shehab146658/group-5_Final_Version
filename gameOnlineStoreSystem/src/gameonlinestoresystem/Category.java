@@ -11,36 +11,37 @@ package gameonlinestoresystem;
  */
 import java.util.*;
 public class Category implements ItemComponent {
-public String categoryID;
+private String categoryID;
 private String categoryName;
-ArrayList<Item> items=new ArrayList<Item>();
 
+private ArrayList<Item> Category ;
+    
+
+//private ArrayList<Item> items=new ArrayList<Item>();
+
+
+  
 final ItemComponent item;
 
-    public Category(String categoryID,String categoryName)
-    {
+    public Category(String categoryID, String categoryName, ArrayList<Item> Category, ItemComponent item) {
         this.categoryID = categoryID;
         this.categoryName = categoryName;
+        this.Category = Category;
+        this.item = item;
         item= new ItemComponent() {
 
             @Override
             public void rateItem(Item i, int rate) {}
             @Override
-            public void viewItemsDetails(Item i, Category c) {}
+            public void viewItemsDetails(Item i, Category c)
+            {
+                
+            }
             @Override
             public void rate(Item i) {}
         };
        
     }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-    
 
     public String getCategoryID() {
         return categoryID;
@@ -50,28 +51,31 @@ final ItemComponent item;
         this.categoryID = categoryID;
     }
 
-    public ArrayList<Item> getItems() {
-        return items;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public void add(Item i) {
-       if(i.getItemID()==0)
-       {
-           add(i);
-       }
+    public ArrayList<Item> getCategory() {
+        return Category;
     }
 
-   
-   
-    
-    public void remove(Item i) {
+    public void setCategory(ArrayList<Item> Category) {
+        this.Category = Category;
+    }
+
+    public void addAnItem(Item item)
+    {
+      Category.add(item);
+    }   
+ 
+    public void removeItem(Item i) {
           if(i.getItemID()!=0)
           {
-              remove(i);
+             Category.remove(i);
           }
         
     }
@@ -118,8 +122,8 @@ final ItemComponent item;
                  i.rateItem(i, i.getRate());
             }
 
-    @Override
-    public String toString() {
+    //@Override
+   /* public String toString() {
         
         String result = "categoryID=" + categoryID 
                 + ",  categoryName=" + categoryName
@@ -131,7 +135,7 @@ final ItemComponent item;
                     + "\n";
         }
         return result;
-    }
+    }*/
 
            
 

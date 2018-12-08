@@ -16,6 +16,7 @@ import java.rmi.registry.Registry;
 import RMI.ClientFacade;
 
 public class RemoteFacadeClient {
+    
      public static void main(String[] args) throws RemoteException, NotBoundException {
 
         // Connect to RMI Registry
@@ -23,19 +24,10 @@ public class RemoteFacadeClient {
 
         // Get the remote facade reference
         
-        ClientFacade Admin= (ClientFacade) reg.lookup("Admin");
-        ClientFacade customerService = (ClientFacade) reg.lookup("customer service");
-        ClientFacade vendor = (ClientFacade) reg.lookup("vendor");
+        ClientFacade Admin= (ClientFacade) reg.lookup("facade");
+        
         // Print items
-          System.out.println("items viewed by Admin:");
-          System.out.println(Admin.viewItem());
-          System.out.println("items added by Admin:");
-          System.out.println(Admin.addItem());
-          System.out.println("items deleted by Admin:");
-          System.out.println(Admin.deleteItem());
-          System.out.println("items updated by Admin:");
-          System.out.println(Admin.update());
-
+         
        
 
     }
