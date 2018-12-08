@@ -11,11 +11,19 @@ package gameonlinestoresystem;
  */
 import java.util.*;
 public class AccountManager {
-    ArrayList<Person> client= new ArrayList<Person>();
-    public String username;
-    public String password;
     
-    public Boolean verifyLogin()
+     public ArrayList<Person> client= new ArrayList<Person>();
+
+    public ArrayList<Person> getClient() {
+        return client;
+    }
+
+    public AccountManager() {
+    }
+    
+     
+    
+    public Boolean verifyLogin(String username, String password)
     {
         for (int i=0; i< client.size() ; i++)
         {

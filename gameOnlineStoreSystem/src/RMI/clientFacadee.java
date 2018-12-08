@@ -45,14 +45,11 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
     }
 
     @Override
-    public String verifyLogin() throws RemoteException {
+    public String verifyLogin(String na , String pa) throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public String Login() throws RemoteException {
-           return "Logged In Sucessfully";
-    }
+    
 
     @Override
     public String update() throws RemoteException {
