@@ -14,6 +14,9 @@ public class Category implements ItemComponent {
 private String categoryID;
 private String categoryName;
 
+private ArrayList<Item> items=new ArrayList<Item>();
+
+
 private ArrayList<Item> Category ;
     
 

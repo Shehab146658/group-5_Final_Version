@@ -26,7 +26,10 @@ import remotefacadeClient.LoginGUI;
 import remotefacadeClient.VendorForm;
 import remotefacadeClient.customerServiceForm;
 import remotefacadeClient.ItemsGUI;
+
 import remotefacadeClient.Payment;
+
+
 
 
 public class MainWindowController {
@@ -36,6 +39,7 @@ public class MainWindowController {
     Registry r;
     ItemsGUI items;
     VendorForm vendor;
+
     CustomerItems ci;
 
       public MainWindowController(LoginGUI gui,CustomerItemsView cv, CustomerItems ci,Registry r)
@@ -55,6 +59,8 @@ public class MainWindowController {
        cv.getjButton6().addActionListener(new CategoriesBtn());
           ci.jRadioButton3().addActionListener(new PaymentBtn());
     }
+     
+    
       public MainWindowController(LoginGUI gui, Registry r, ItemsGUI items, VendorForm vendor)
     { 
         this.gui=gui;
@@ -63,6 +69,7 @@ public class MainWindowController {
         this.vendor = vendor;
         // This registers the button with our action listener below (the inner class)
       gui.getjButton1().addActionListener(new GetCustomerBtnAction());
+
       gui.getButton2().addActionListener(new Cancelbtn());
       vendor.getjButton1().addActionListener(new GetVendorBtnAction());
       vendor.getjButton3().addActionListener(new GetVendorBtnAction());
@@ -73,6 +80,7 @@ public class MainWindowController {
     public MainWindowController(Registry r) {
         this.r = r;
     }
+
       class PaymentBtn implements ActionListener{
 
         @Override
@@ -87,6 +95,9 @@ public class MainWindowController {
         }
           
       }
+
+      
+
     class GetVendorBtnAction implements ActionListener
             {
 
@@ -111,7 +122,7 @@ public class MainWindowController {
             }
             
         }
-                
+
 
     }
 
@@ -121,6 +132,7 @@ public class MainWindowController {
           System.exit(0);
           return " ";
       }
+
 
       public void CategoryBtn()
       {
@@ -133,6 +145,7 @@ public class MainWindowController {
              }
           
       }
+
 
       class Cancelbtn implements ActionListener
         {
@@ -153,6 +166,7 @@ public class MainWindowController {
           
         
       }
+
       class CategoriesBtn implements ActionListener{
 
         @Override
@@ -160,6 +174,7 @@ public class MainWindowController {
              CategoryBtn();
         }
       }
+
       
       class GetCustomerBtnAction implements ActionListener {
 
@@ -170,8 +185,10 @@ public class MainWindowController {
                ClientFacade facade= (ClientFacade)r.lookup("username");
                 ClientFacade facade1= (ClientFacade)r.lookup("password");
 
+
                  // gui.getjLabel5().setTciext(facade.Login());
                
+
                 
                  // gui.getjLabel5().setText(facade.Login());
 

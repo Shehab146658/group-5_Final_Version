@@ -39,12 +39,18 @@ public class RemoteControllerClient {
         // TODO code application logic here
           // Connect to RMI Registry
         Registry reg = LocateRegistry.getRegistry(1099);
+
         // Get the remote facade reference
        MainWindowController control = new MainWindowController(GUI,cv, ci,reg);
 
 
         
          // Get the remote facade reference
+
+        
+         // Get the remote facade reference
+       
+
         addItemManager(reg);
         // Print 
        // System.out.println("The items are: ");   
