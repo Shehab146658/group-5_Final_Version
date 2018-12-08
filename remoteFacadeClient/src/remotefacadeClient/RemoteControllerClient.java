@@ -11,6 +11,7 @@ package remotefacadeClient;
  */
 import Controller.MainWindowController;
 import RMI.ClientFacade;
+import gameonlinestoresystem.dbManagerINT;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -20,7 +21,11 @@ public class RemoteControllerClient {
     /**
      * @param args the command line arguments
      */
-    
+    public static void addItemManager(Registry r) throws RemoteException, NotBoundException
+      {
+          dbManagerINT dbMan=(dbManagerINT)r.lookup("database");
+          dbMan.addNewItem(1000, "test");
+      }
     public static void main(String[] args)throws RemoteException,NotBoundException  {
         LoginGUI GUI=new LoginGUI();
         
@@ -34,7 +39,7 @@ public class RemoteControllerClient {
         
          // Get the remote facade reference
         MainWindowController control = new MainWindowController(reg);
-        control.addItemManager();
+        addItemManager(reg);
         // Print 
        // System.out.println("The items are: ");   
     }

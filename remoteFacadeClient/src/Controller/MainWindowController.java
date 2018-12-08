@@ -17,7 +17,7 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import RMI.ClientFacade;
-import RMI.dbManagerINT;
+import gameonlinestoresystem.dbManagerINT;
 import javax.swing.JOptionPane;
 import remotefacadeClient.AdminForm;
 import remotefacadeClient.LoginGUI;
@@ -86,11 +86,7 @@ public class MainWindowController {
           return " ";
       }
       
-      public void addItemManager() throws RemoteException, NotBoundException
-      {
-          dbManagerINT dbMan=(dbManagerINT)r.lookup("database");
-          dbMan.addNewItem(1000, "test");
-      }
+      
       class Cancelbtn implements ActionListener
         {
 
