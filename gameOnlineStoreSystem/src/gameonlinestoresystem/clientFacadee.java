@@ -39,14 +39,11 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
     }
 
     @Override
-    public String verifyLogin() throws RemoteException {
+    public String verifyLogin(String n , String p ) throws RemoteException {
    return "Logged In Sucessfully";
     }
 
-    @Override
-    public String Login() throws RemoteException {
-           return "Logged In Sucessfully";
-    }
+    
 
 
     @Override

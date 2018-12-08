@@ -23,7 +23,7 @@ public class TestCase {
         DB db= new DB();
         assertEquals(c,db.getTicketByID(id));
     }
-        @Test
+        
     //public void deleteshoppingCartTESTING(shoppingCart s)
     //{
     //    DB db= new DB();
@@ -31,7 +31,7 @@ public class TestCase {
      //   assertNull(s);
     //}
         
-         @Test
+        @Test
     public void GetTicketTESTING(Ticket c,String id)
     {
         DB db= new DB();
@@ -58,7 +58,7 @@ public class TestCase {
 
        //int x = i.getItemID(); 
        //assertNotNull(db.getItemByID(x)); 
-   }
+}
    
 
-}
+
