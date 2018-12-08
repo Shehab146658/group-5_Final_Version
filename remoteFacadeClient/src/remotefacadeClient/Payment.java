@@ -5,6 +5,8 @@
  */
 package remotefacadeClient;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Dell
@@ -94,6 +96,11 @@ public class Payment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
+         
+    public  JButton jButton1()
+    {
+        return jButton1;
+    }
     /**
      * @param args the command line arguments
      */
@@ -127,6 +134,7 @@ public class Payment extends javax.swing.JFrame {
                 new Payment().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -291,7 +291,7 @@ public class DB {
         return result;
     }
 
-    public void updateItem(Item c,String id) {
+    public void updateItem(Item c,int id) {
         Document doc = Document.parse(gson.toJson(c));
         boolean result = collectionItem.replaceOne(Filters.eq("itemID", id), doc).wasAcknowledged();
         if (result) {

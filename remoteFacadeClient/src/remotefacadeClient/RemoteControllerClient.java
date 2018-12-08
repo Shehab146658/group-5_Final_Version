@@ -16,6 +16,12 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import RMI.ClientFacade;
+import gameonlinestoresystem.dbManagerINT;
 public class RemoteControllerClient {
 
     /**
@@ -30,7 +36,8 @@ public class RemoteControllerClient {
         LoginGUI GUI=new LoginGUI();
         CustomerItemsView cv = new CustomerItemsView();
         CustomerItems ci=new CustomerItems();
-        
+        Payment pay= new Payment();
+        AdminForm ad=new AdminForm();
         GUI.setLocationRelativeTo(null); // This makes the window appears centered
         GUI.setVisible(true); // This shows the gui
         cv.setLocationRelativeTo(null);
@@ -41,7 +48,7 @@ public class RemoteControllerClient {
         Registry reg = LocateRegistry.getRegistry(1099);
 
         // Get the remote facade reference
-       MainWindowController control = new MainWindowController(GUI,cv, ci,reg);
+       MainWindowController control = new MainWindowController(GUI,cv, ci,reg,pay);
 
 
         
@@ -50,9 +57,21 @@ public class RemoteControllerClient {
         
          // Get the remote facade reference
        
+        // Connect to RMI Registry
+   
+        dbManagerINT manageDB=(dbManagerINT)reg.lookup("database");
+        // Get the remote facade reference
+        
+        //ClientFacade Admin= (ClientFacade) reg.lookup("facade");
+        
+        // Print items
+         addItemManager(reg);
+         
+       
 
-        addItemManager(reg);
+    }
+       
         // Print 
        // System.out.println("The items are: ");   
     }
-}
+

@@ -7,6 +7,7 @@ package gameonlinestoresystem;
 
 import java.util.ArrayList;
 import java.util.Observable;
+import mongoDB.DB;
 
 /**
  *
@@ -39,33 +40,37 @@ public class systemAdmin implements Observer , View_item , item_adder , delete_i
    {
        if(c.getCustomerID()==null)
        {
-           addAcc(c,null,null);
+           DB db = new DB();
+           db.insertCustomer(c);
        }  
        if(v.getSSN()==null)
        {
-           addAcc(null,v,null);
+           
+           DB db = new DB();
+           db.insertVendor(v);
        }  
        if(cs.SSN==null)
        {
-           addAcc(null,null,cs);
+           DB db = new DB();
+           db.insertcustomerService(cs);
        }  
    }
 
    public void updateAcc(Customer c,Vendor v, customerService cs, String CustomerID, String vendorSSN, String csID)
    {
-       c.getCustomerID();
-       Admin.updateAcc(c, v, cs, CustomerID, null, null);
-       v.getSSN();
-       Admin.updateAcc(c, v, cs, null, vendorSSN, null);
-       cs.getSSN();
-       Admin.updateAcc(c, v, cs, null, null, csID);     
+       DB db = new DB();
+       db.updateCustomer(c, csID);
+       db.updatecustomerService(cs, csID);
+       db.updateVendor(v, csID);
    }
    
 
-   public void updateItem(int itemID, String name , int price)
+   public void updateItem(Item I,int itemID)
    {
-       items.get(itemID).setName(name);
-       items.get(itemID).setPrice(price);
+      // items.get(itemID).setName(name);
+       //items.get(itemID).setPrice(price);
+        DB db = new DB();
+        db.updateItem(I, itemID);
    }
    
     public void approveItem(String itemID)
@@ -82,10 +87,12 @@ public class systemAdmin implements Observer , View_item , item_adder , delete_i
   
     @Override
     public void viewItems() {
-        for(int i = 0; i <  items.size();i++)
+       /* for(int i = 0; i <  items.size();i++)
         {
             System.out.println("Item ID " + items.get(i).getItemID() + "Item Price" + items.get(i).getPrice());
-        }
+        }*/
+        DB db= new DB();
+        db.getAllItems();
     }
 
     @Override
@@ -95,8 +102,9 @@ public class systemAdmin implements Observer , View_item , item_adder , delete_i
 
     @Override
     public void addItems(Item i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+            DB db=new DB();
+            db.insertItem(i);
+        }
   
     
    

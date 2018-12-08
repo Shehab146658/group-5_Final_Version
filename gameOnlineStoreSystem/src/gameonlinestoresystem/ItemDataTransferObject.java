@@ -1,5 +1,6 @@
 
 package gameonlinestoresystem;
+import RMI.itemInterface;
 import mongoDB.*;
 import gameonlinestoresystem.Item;
 import java.rmi.RemoteException;
@@ -8,7 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
  *
  * @author meran
  */
-public class ItemDataTransferObject  extends UnicastRemoteObject {
+public class ItemDataTransferObject  extends UnicastRemoteObject implements itemInterface {
     private static ItemDataTransferObject item;
     DB db = new DB();
     
@@ -26,10 +27,23 @@ public class ItemDataTransferObject  extends UnicastRemoteObject {
         return item;
     }
   
-    public void addnewItem(int price, String name)
+    public String addnewItem(int price, String name)
     {
         Item i = new Item(price,name);
         db.insertItem(i);
+        return"item Inserted Successfully";
+    }
+    public String updateItem(int price, String name)
+    {
+         Item i = new Item(price,name);
+        db.updateItem(i, price);
+        return"item updated successfully";
+    }
+    public String deleteItem(int price, String name){
+         Item i = new Item(price,name);
+         db.deleteItem(i);
+         return"item deleted Successfully";
+        
     }
     
 }

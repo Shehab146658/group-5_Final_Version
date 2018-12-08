@@ -9,9 +9,8 @@ public class Main {
     
 
     /*private static void insert() {
-=======
     private static void dbInsertion() {
->>>>>>> 4291db015be86f15b33c6b3eeb6555261a97f3ee
+
         DB db = new DB();
         Category action = new Category("1", "action");
         Category arcade = new Category("2", "arcade");

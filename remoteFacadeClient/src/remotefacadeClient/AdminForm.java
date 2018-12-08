@@ -5,6 +5,8 @@
  */
 package remotefacadeClient;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Dell
@@ -126,6 +128,14 @@ public class AdminForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    public JButton getButton4()
+    {
+        return jButton4;
+    }
+    public JButton getButton1()
+    {
+        return jButton1;
+    }
     /**
      * @param args the command line arguments
      */

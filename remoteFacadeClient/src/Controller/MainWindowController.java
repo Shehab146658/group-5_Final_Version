@@ -17,6 +17,8 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import RMI.ClientFacade;
+import RMI.itemInterface;
+
 import gameonlinestoresystem.dbManagerINT;
 import javax.swing.JOptionPane;
 import remotefacadeClient.AdminForm;
@@ -39,34 +41,40 @@ public class MainWindowController {
     Registry r;
     ItemsGUI items;
     VendorForm vendor;
-
+    Payment pay;
     CustomerItems ci;
-
-      public MainWindowController(LoginGUI gui,CustomerItemsView cv, CustomerItems ci,Registry r)
+   AdminForm admin;
+      public MainWindowController(LoginGUI gui,CustomerItemsView cv, CustomerItems ci,Registry r,Payment pay)
     {
         this.ci=ci;
         this.gui=gui;
         this.r=r;
         this.cv=cv;
+        this.pay=pay;
+        this.admin=admin;
         // This registers the button with our action listener below (the inner class)
-      gui.getjButton1().addActionListener(new GetCustomerBtnAction());
-     gui.getButton2().addActionListener(new Cancelbtn());
+       gui.getjButton1().addActionListener(new GetCustomerBtnAction());
+       gui.getButton2().addActionListener(new Cancelbtn());
        cv.getjButton1().addActionListener(new CategoriesBtn());
        cv.getjButton2().addActionListener(new CategoriesBtn());
        cv.getjButton3().addActionListener(new CategoriesBtn());
        cv.getjButton4().addActionListener(new CategoriesBtn());
        cv.getjButton5().addActionListener(new CategoriesBtn());
        cv.getjButton6().addActionListener(new CategoriesBtn());
-          ci.jRadioButton3().addActionListener(new PaymentBtn());
+       ci.jButton3().addActionListener(new PaymentBtn());
+       admin.getButton4().addActionListener(null);
+       admin.getButton1().addActionListener(new additemBtn());
+      // pay.jButton1().addActionListener(new Order());
     }
      
     
-      public MainWindowController(LoginGUI gui, Registry r, ItemsGUI items, VendorForm vendor)
+      public MainWindowController(LoginGUI gui, Registry r, ItemsGUI items,Payment pay, VendorForm vendor)
     { 
         this.gui=gui;
         this.r=r;
         this.items = items;
         this.vendor = vendor;
+        this.pay=pay;
         // This registers the button with our action listener below (the inner class)
       gui.getjButton1().addActionListener(new GetCustomerBtnAction());
 
@@ -81,17 +89,50 @@ public class MainWindowController {
         this.r = r;
     }
 
+    class AdminViewItemBtn implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+           
+        }
+        
+    }
+    class additemBtn implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            try{
+                int price = 0;
+                String name = null;
+                itemInterface item=(itemInterface)r.lookup("addItem");
+                               item.addnewItem(price,name);
+                              JOptionPane.showMessageDialog(admin, "item added successfully");
+
+                               
+                   
+            }catch (RemoteException ex) {
+                Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NotBoundException ex) {
+                Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
       class PaymentBtn implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-          //  for(int i=0;i<
+        if (ci.jRadioButton1().isSelected()||ci.jRadioButton2().isSelected()||ci.jRadioButton3().isSelected()||ci.jRadioButton4().isSelected()||ci.jRadioButton5().isSelected()||ci.jRadioButton6().isSelected()||ci.jRadioButton7().isSelected()||ci.jRadioButton8().isSelected()||ci.jRadioButton9().isSelected())
             {
-            Payment P=new Payment();
-            P.setLocationRelativeTo(null);
-                  P.setVisible(true);
+            //Payment pay=new Payment();
+            pay.setLocationRelativeTo(null);
+                  pay.setVisible(true);
                   ci.dispose();
             }
+        else{
+            JOptionPane.showMessageDialog(ci, "You must select an item ");
+            
+        }
         }
           
       }
