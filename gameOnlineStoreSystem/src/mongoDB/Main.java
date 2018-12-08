@@ -7,7 +7,7 @@ import gameonlinestoresystem.*;
 
 public class Main {
     
-    private static void insert() {
+    private static void dbInsertion() {
         DB db = new DB();
         Category action = new Category("1", "action");
         Category arcade = new Category("2", "arcade");
@@ -33,7 +33,7 @@ public class Main {
     }
     
     public static void main(String[] args) {
-        //insert(); 
+        //dbInsertion();
 
         DB db = new DB();
        
@@ -42,7 +42,6 @@ public class Main {
         for (int i = 0; i < Category.size(); i++) {
             System.out.println(Category.get(i).toString());
         }
-        
     }
     
 }
