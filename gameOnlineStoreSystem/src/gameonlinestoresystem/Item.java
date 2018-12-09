@@ -15,7 +15,6 @@ public class Item implements ItemComponent  {
 private static int itemID;
 private String name; 
 private int rate;
-private shoppingCart s1;
 private int price;
 
 public Item(int price, String name) {
@@ -56,13 +55,6 @@ public void setRate(int rate) {
         this.price = price;
     }
 
-    public shoppingCart getS1() {
-        return s1;
-    }
-
-    public void setS1(shoppingCart s1) {
-        this.s1 = s1;
-    }
 
 
 

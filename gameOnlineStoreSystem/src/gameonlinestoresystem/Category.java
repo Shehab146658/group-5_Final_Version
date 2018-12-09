@@ -10,14 +10,13 @@ package gameonlinestoresystem;
  * @author Dell
  */
 import java.util.*;
+import mongoDB.DB;
 public class Category implements ItemComponent {
 private String categoryID;
 private String categoryName;
+private final DB db=new DB();
+private ArrayList<Item> items=db.getAllItems();
 
-private ArrayList<Item> items=new ArrayList<Item>();
-
-
-private ArrayList<Item> Category ;
     
 
 //private ArrayList<Item> items=new ArrayList<Item>();
@@ -26,10 +25,9 @@ private ArrayList<Item> Category ;
   
 final ItemComponent item;
 
-    public Category(String categoryID, String categoryName, ArrayList<Item> Category, ItemComponent item) {
+    public Category(String categoryID, String categoryName, ItemComponent item) {
         this.categoryID = categoryID;
         this.categoryName = categoryName;
-        this.Category = Category;
         this.item = item;
         item= new ItemComponent() {
 
@@ -62,13 +60,6 @@ final ItemComponent item;
         this.categoryName = categoryName;
     }
 
-    public ArrayList<Item> getCategory() {
-        return Category;
-    }
-
-    public void setCategory(ArrayList<Item> Category) {
-        this.Category = Category;
-    }
 
     public void addAnItem(Item item)
     {

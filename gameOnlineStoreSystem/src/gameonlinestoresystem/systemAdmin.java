@@ -57,12 +57,31 @@ public class systemAdmin extends Person implements Observer , View_item , item_a
     
     
 
-   public void updateAcc(int i,int CustomerID, int vendorSSN, int csID)
+   public void updateAccPass(int accType,int CustomerID, int vendorSSN, int csID,String newPass)
    {
        DB db = new DB();
-       db.updateCustomer(c, csID);
-       db.updatecustomerService(cs, csID);
-       db.updateVendor(v, csID);
+       switch (accType){
+        case 1:
+                Customer cust =db.getCustomerByID(CustomerID);
+                cust.setPassword(newPass);
+                db.deleteCustomer(CustomerID);
+                db.insertCustomer(cust);
+                break;
+        case 2: 
+               Vendor vend =db.getVendorBySSN(vendorSSN);
+               vend.setPassword(newPass);
+               db.deleteVendor(vendorSSN);
+               db.insertVendor(vend);
+                break;
+        case 3:
+            customerService custser =db.getcustomerServiceBySSN(csID);
+            custser.setPassword(newPass);
+            db.deletecustomerService(csID);
+            db.insertcustomerService(custser);
+            break;
+        default:
+            break;
+        }
    }
    
 
