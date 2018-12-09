@@ -13,4 +13,5 @@ import java.rmi.RemoteException;
  */
 public interface dbManagerINT {
     public String addNewItem(int price,String name)throws RemoteException;
+        public String getAllCategories()throws RemoteException;
 }

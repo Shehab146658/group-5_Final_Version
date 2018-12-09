@@ -13,9 +13,11 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Observable;
 public interface systemFunctions extends Remote{
+    
      public String addToCart()throws RemoteException; 
    public String viewCart()throws RemoteException;
    public String deleteItem()throws RemoteException;
    public String updateItem()throws RemoteException;
+  
     
 }

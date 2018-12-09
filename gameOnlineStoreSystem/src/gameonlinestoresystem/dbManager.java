@@ -5,6 +5,7 @@
  */
 package gameonlinestoresystem;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.String;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import mongoDB.DB;
@@ -34,4 +35,11 @@ public class dbManager extends UnicastRemoteObject implements dbManagerINT{
         db.insertItem(item1);
         return "item inserted successfully";
     }
+    public String getAllCategories() throws RemoteException
+    {
+        db.getAllCategories();
+        return"categories are reviewed";
+    }
+
+  
 }
