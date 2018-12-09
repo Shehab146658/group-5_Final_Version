@@ -11,16 +11,12 @@ package gameonlinestoresystem;
  */
 import java.util.*;
 import java.util.Scanner;
-public class Vendor extends Person implements Observer {
+public class Vendor implements Observer {
     private String SSN; 
     private static int observeridtracker;
     private int observerid;
    
-    public Vendor(String SSN , String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
-        
-        super(address, firstName, lastName, mobileNumber, email, username, password);
-        this.SSN = SSN;
-    }
+    
 
     public String getSSN() {
         return SSN;

@@ -10,28 +10,23 @@ package gameonlinestoresystem;
  * @author Dell
  */
 import java.util.*;
-public class customerService extends Person implements Observer , AddTicket  {
+public class customerService implements Observer , AddTicket  {
     public String SSN;
     private static int observeridtracker;
     private int observerid;
     private Subject s = new Order();
     ArrayList<Ticket> Tickets = new ArrayList<Ticket>();
     ArrayList<Item> items = new ArrayList<Item>();
-    public customerService(String SSN ,String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
-        super(address, firstName, lastName, mobileNumber, email, username, password);
-        this.SSN = SSN;
-    }
+    
 
-    public customerService(Subject sub , String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
+    /*public customerService(Subject sub , String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
         super(address, firstName, lastName, mobileNumber, email, username, password);
         this.s = sub;
         this.observerid = ++observeridtracker;
         s.addObserver(this);
-    }
+    }*/
 
-    public customerService(String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
-        super(address, firstName, lastName, mobileNumber, email, username, password);
-    }
+    
 
     public customerService() {
     }
