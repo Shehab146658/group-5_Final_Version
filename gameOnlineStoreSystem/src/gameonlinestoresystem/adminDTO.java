@@ -13,7 +13,7 @@ public class adminDTO extends UnicastRemoteObject{
     private static adminDTO admin;
     DB db = new DB();
 
-    public adminDTO() throws RemoteException {
+    private adminDTO() throws RemoteException {
     }
     
     public static adminDTO getInstanceOfItem() throws RemoteException

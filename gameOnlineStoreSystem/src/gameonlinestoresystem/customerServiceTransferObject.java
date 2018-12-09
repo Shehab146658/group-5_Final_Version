@@ -16,7 +16,7 @@ public class customerServiceTransferObject implements Remote{
     private String Message;
     private customerService x;
 
-    public customerServiceTransferObject(String csutomerServiceID, String Message) {
+    private customerServiceTransferObject(String csutomerServiceID, String Message) {
         this.csutomerServiceID = csutomerServiceID;
         this.Message = Message;
     }

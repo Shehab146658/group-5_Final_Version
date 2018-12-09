@@ -13,7 +13,7 @@ public class orderDataTransferObject extends UnicastRemoteObject implements orde
     private static orderDataTransferObject order;
     DB db = new DB();
 
-    public orderDataTransferObject() throws RemoteException {
+    private orderDataTransferObject() throws RemoteException {
     }
     
     public static orderDataTransferObject getInstanceOfItem() throws RemoteException

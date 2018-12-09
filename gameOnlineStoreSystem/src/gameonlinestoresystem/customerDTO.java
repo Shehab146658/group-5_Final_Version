@@ -13,7 +13,7 @@ public class customerDTO extends UnicastRemoteObject implements customerDTOinter
     private static customerDTO c;
     DB db = new DB();
 
-    public customerDTO() throws RemoteException {
+    private customerDTO() throws RemoteException {
     }
     
     public static customerDTO getInstanceOfItem() throws RemoteException
