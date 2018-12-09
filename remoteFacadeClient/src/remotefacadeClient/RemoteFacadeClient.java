@@ -14,6 +14,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import RMI.ClientFacade;
+import gameonlinestoresystem.CategoryDTOinterface;
 import gameonlinestoresystem.dbManagerINT;
 
 public class RemoteFacadeClient {
@@ -30,11 +31,13 @@ public class RemoteFacadeClient {
         // Print items
         
         // Get the remote facade reference
-       ClientFacade facade = (ClientFacade ) reg.lookup("facade");
-        
-        
+        ClientFacade facade = (ClientFacade ) reg.lookup("facade");
+        dbManagerINT  database=( dbManagerINT)reg.lookup("database");
+        CategoryDTOinterface cto=(CategoryDTOinterface)reg.lookup("CTO");
+        System.out.println("Log in :");
         System.out.println(facade.verifyLogin(124, 124,"1234"));
-
+        System.out.println("view all Ctegories");
+        cto.viewItemsDetails();
         // Edit the address and print the new one
       //   myAddress.setAddress("Ahmed Tayseer St", "Heliopolis", "Cairo", "Egypt");
       //  System.out.println(myAddress.getAddress());
