@@ -46,8 +46,8 @@ public class ItemsInfo  {
        public static void main(String[] args) {    
     //new ItemsInfo();  
     //DB db=new DB();
-    AccountManager ac=new AccountManager();
-    ac.verifyLogin(1, 12, "password");
+    //AccountManager ac=new AccountManager();
+    //ac.verifyLogin(1, 12, "password");
     //System.out.println("retrived: "+db.getTheCurrentAdmins());
 }  
 }

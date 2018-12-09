@@ -10,9 +10,18 @@ import gameonlinestoresystem.Item;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import RMI.ClientFacade;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
 import java.util.Observable;
 import java.util.Scanner;
+import javax.net.ssl.SSLContext;
 import mongoDB.DB;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLContexts;
+import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 
 /**
  *
@@ -51,73 +60,55 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    public String api(String password)
+    {
+        try{
+            
+             SSLContext sslcontext = SSLContexts.custom()
+                    .loadTrustMaterial(null, new TrustSelfSignedStrategy())
+                    .build();
+            SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslcontext);
+            CloseableHttpClient httpclient = HttpClients.custom()
+                    .setSSLSocketFactory(sslsf)
+                    .build();
+            Unirest.setHttpClient(httpclient);
+                HttpResponse<JsonNode>response= Unirest.post("http://usfngm.com/login.php?password="+password).asJson();
+                System.out.println(response.getBody());
+                return response.getBody().toString();
+            }catch (Exception e) {
+            return "Exception: " + e.getMessage();
+            
+        }
+        
+    }
+
     @Override
-    public Boolean verifyLogin(int category, int id, String password) {
- DB db=new DB();
+    public Boolean verifyLogin(int category, int id, String password) throws RemoteException {
+        DB db=new DB();
         UnirestTest ap=new UnirestTest();
         String encPass= ap.api(password);
-        System.out.println("enter 1 for customer, 2 for vendor, 3 for admin, 4 for customer service");
-        switch(category)
+        System.out.println("testing");
+        Customer cust = db.getCustomerByID(id);
+        cust.setPassword(encPass);
+        System.out.println(cust.getPassword());
+        System.out.println(encPass);
+        if(cust==null)
         {
-            
-            case 1:
-                Customer cust = db.getCustomerByID(id);
-                if(cust==null)
-                {
-                    System.out.println("wrong id");
-                    return false;
-                }
-                else if (cust.getPassword()==encPass)
-                {
-                    System.out.println("login ok");
-                    return true;
-                } 
-                break;
-            case 2:
-                Vendor vend = db.getVendorBySSN(id);
-                if(vend==null)
-                {
-                    System.out.println("wrong id");
-                    return false;
-                }
-                else if (vend.getPassword()==encPass)
-                {
-                    System.out.println("login ok");
-                    return true;
-                } 
-                break;
-            case 3:
-                systemAdmin admin = db.getAdmin();
-                if(admin==null)
-                {
-                    System.out.println("wrong id");
-                    return false;
-                }
-                else if (admin.getPassword()==encPass)
-                {
-                    System.out.println("login ok");
-                    return true;
-                } 
-                break;
-            case 4:
-                customerService custserv = db.getcustomerServiceBySSN(id);
-                if(custserv==null)
-                {
-                    System.out.println("wrong id");
-                    return false;
-                }
-                if (custserv.getPassword()==encPass)
-                {
-                    System.out.println("login ok");
-                    return true;
-                } 
-                break;
-            default:
-                break;
+            System.out.println("id doesn't exist");
+            return false;
         }
-            
-        return true;
-    }    }
+        else if (cust.getPassword().equals(encPass));
+        {
+            System.out.println("login ok");
+            return true;
+        } 
+        
+    }
+
+
+
+}
    
 
     

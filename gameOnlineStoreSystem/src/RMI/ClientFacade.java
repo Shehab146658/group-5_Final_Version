@@ -19,6 +19,6 @@ public interface ClientFacade extends Remote {
 
     public String notify(String customerID,String vendorID,String customerServiceID)throws RemoteException; //customer service, admin, vendor
     public Boolean verifyLogin(int category,int id, String password) throws RemoteException;
-   public String update() throws RemoteException; //customer service, admin, vendor 
-  
+    public String update() throws RemoteException; //customer service, admin, vendor 
+    
 }

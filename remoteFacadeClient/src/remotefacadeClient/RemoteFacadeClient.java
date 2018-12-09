@@ -22,7 +22,7 @@ public class RemoteFacadeClient {
 
         // Connect to RMI Registry
         Registry reg = LocateRegistry.getRegistry(1099);
-     //   dbManagerINT manageDB=(dbManagerINT)reg.lookup("database");
+       //   dbManagerINT manageDB=(dbManagerINT)reg.lookup("database");
         // Get the remote facade reference
         
         //ClientFacade Admin= (ClientFacade) reg.lookup("facade");
@@ -33,10 +33,10 @@ public class RemoteFacadeClient {
        ClientFacade facade = (ClientFacade ) reg.lookup("facade");
         
         
-        System.out.println(facade.verifyLogin(1, 1,"1234"));
+        System.out.println(facade.verifyLogin(123, 123,"123"));
 
         // Edit the address and print the new one
-     //   myAddress.setAddress("Ahmed Tayseer St", "Heliopolis", "Cairo", "Egypt");
+      //   myAddress.setAddress("Ahmed Tayseer St", "Heliopolis", "Cairo", "Egypt");
       //  System.out.println(myAddress.getAddress());
          
        

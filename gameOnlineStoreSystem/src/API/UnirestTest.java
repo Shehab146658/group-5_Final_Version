@@ -43,7 +43,7 @@ public class UnirestTest {
                     .setSSLSocketFactory(sslsf)
                     .build();
             Unirest.setHttpClient(httpclient);
-                HttpResponse<JsonNode>response= Unirest.post("http://usfngm.com/login.php?password="+password+"/post").queryString("password","098f6bcd4621d373cade4e832627b4f6").asJson();
+                HttpResponse<JsonNode>response= Unirest.post("http://usfngm.com/login.php?password="+password).asJson();
                 System.out.println(response.getBody());
                 return response.getBody().toString();
             }catch (Exception e) {
@@ -51,6 +51,12 @@ public class UnirestTest {
             
         }
         
+    }
+    
+    public static void main(String[] args)
+    {
+        UnirestTest u=new UnirestTest();
+        u.api("shehab");
     }
        
 
