@@ -17,7 +17,7 @@ import java.rmi.registry.Registry;
 import mongoDB.DB;
 public class RemoteFacadeMain {
      public static void main(String[] args) throws RemoteException, AlreadyBoundException{
-         Customer cust=new Customer(1,"nasr city","fatma","mekhemer","0455544665","fatma147380@bue.edu.eg","fatma","1234");
+         Customer cust=new Customer(123,"nasr city","fatma","mekhemer","0455544665","fatma147380@bue.edu.eg","fatma","1234");
          // public Customer(int customerID, String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
          DB db = new DB();
          db.insertCustomer(cust);
@@ -33,7 +33,7 @@ public class RemoteFacadeMain {
         
         // Publish to client
         Registry reg = LocateRegistry.createRegistry(1099);
-       reg.bind("facade", new clientFacadee(manager,vendor,admin,service,cust));
+        reg.bind("facade", new clientFacadee(manager,vendor,admin,service,cust));
         
         System.out.println("Server is ready");
         
