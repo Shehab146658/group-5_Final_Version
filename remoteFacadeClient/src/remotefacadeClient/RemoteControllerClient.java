@@ -48,7 +48,7 @@ public class RemoteControllerClient {
         Registry reg = LocateRegistry.getRegistry(1099);
 
         // Get the remote facade reference
-       MainWindowController control = new MainWindowController(GUI,cv, ci,reg,pay);
+       MainWindowController control = new MainWindowController(GUI,cv, ci,reg,pay,ad);
 
 
         

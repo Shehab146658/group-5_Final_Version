@@ -67,8 +67,8 @@ public class Order implements OrderState , Subject{
     
     public void trackOrder(int orderID)
     {
-        OrderState trackOrder = new Customer();
-        trackOrder.getOrderStatus( orderID );
+       // OrderState trackOrder = new Customer();
+        //trackOrder.getOrderStatus( orderID );
     }
     public void updateStatus(String status)
     {

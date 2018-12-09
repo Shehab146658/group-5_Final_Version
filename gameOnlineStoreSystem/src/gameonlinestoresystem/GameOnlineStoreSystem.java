@@ -51,10 +51,10 @@ public class GameOnlineStoreSystem {
     public static void main(String[] args)throws RemoteException, AlreadyBoundException  {
         // TODO code application logic here
         AccountManager manager=new AccountManager();
-        Vendor vendor=new Vendor();
+        Vendor vendor=new Vendor(1," "," "," "," "," "," "," ");
         systemAdmin admin= systemAdmin.getInstanceOfAdmin();
-        customerService service=new customerService();
-        
+        customerService service=new customerService(2," "," "," "," "," "," "," ");
+
         ClientFacade facade=new clientFacadee(manager,vendor,admin,service);
         dbManager dd= dbManager.getInstanceOfdbManager();
          // An RMI Registry initialized on port 1099

@@ -17,18 +17,18 @@ import java.rmi.registry.Registry;
 public class RemoteFacadeMain {
      public static void main(String[] args) throws RemoteException, AlreadyBoundException{
          AccountManager manager=new AccountManager();
-        Vendor vendor=new Vendor();
+       // Vendor vendor=new Vendor();
         systemAdmin admin= systemAdmin.getInstanceOfAdmin();
-        customerService service=new customerService();
+        //customerService service=new customerService();
         
       
         
         // Set data
-        service.notify();
+        //service.notify();
         
         // Publish to client
         Registry reg = LocateRegistry.createRegistry(1099);
-        reg.bind("facade", new clientFacadee(manager,vendor,admin,service));
+       // reg.bind("facade", new clientFacadee(manager,vendor,admin,service));
         
         System.out.println("Server is ready");
         

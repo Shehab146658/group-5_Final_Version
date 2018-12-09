@@ -38,17 +38,17 @@ public class Ticket {
     
     public void addTickects(String ID , String Description)
     {
-        AddTicket add = new customerService();
+       // AddTicket add = new customerService();
         Ticket t = new Ticket(ID,Description);
-        add.setTickect(t);  
+        //add.setTickect(t);  
     }  
     public void getTickectsByID(int TicketID)
     {
-        customerService c = new customerService();
-        c.getTickectsByID(TicketID);
+    //    customerService c = new customerService();
+      //  c.getTickectsByID(TicketID);
     }
     public void retriveAll(){
-        customerService c = new customerService();
-         c.getTickects();     
+        //customerService c = new customerService();
+       //  c.getTickects();     
     }
 }

@@ -45,7 +45,7 @@ public class MainWindowController {
     Payment pay;
     CustomerItems ci;
    AdminForm admin;
-      public MainWindowController(LoginGUI gui,CustomerItemsView cv, CustomerItems ci,Registry r,Payment pay)
+      public MainWindowController(LoginGUI gui,CustomerItemsView cv, CustomerItems ci,Registry r,Payment pay,AdminForm admin)
     {
         this.ci=ci;
         this.gui=gui;
@@ -245,10 +245,11 @@ public class MainWindowController {
               
               if(gui.jRadioButton1().isSelected())
               {
-                String username= gui.getjTextField1().getText();
+                int id;
+                 //  id = Integer.toString(gui.getjTextField1().getText());
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                
-                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
+                    String customer=Boolean.toString(facade.verifyLogin(1, 2, "123")) ;
+               gui.getjLabel2().setText(customer);
                
                   cv.setLocationRelativeTo(null);
                  cv.setVisible(true);
@@ -261,7 +262,7 @@ public class MainWindowController {
               {
                    String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
+              //   gui.getjLabel2().setText(facade.verifyLogin(username, password));
                  VendorForm vf= new VendorForm();
                  vf.setLocationRelativeTo(null);
                   vf.setVisible(true);
@@ -272,7 +273,7 @@ public class MainWindowController {
               {
                     String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
+               //  gui.getjLabel2().setText(facade.verifyLogin(username, password));
                  AdminForm ad= new AdminForm();
                  ad.setLocationRelativeTo(null);
                   ad.setVisible(true);
@@ -284,7 +285,7 @@ public class MainWindowController {
               {
                     String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
+                // gui.getjLabel2().setText(facade.verifyLogin(username, password));
                  customerServiceForm vf= new customerServiceForm();
                  vf.setLocationRelativeTo(null);
                   vf.setVisible(true);

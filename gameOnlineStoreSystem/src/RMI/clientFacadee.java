@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package RMI;
+import API.UnirestTest;
 import gameonlinestoresystem.*;
 import gameonlinestoresystem.Category;
 import gameonlinestoresystem.Item;
@@ -12,6 +13,7 @@ import java.rmi.server.UnicastRemoteObject;
 import RMI.ClientFacade;
 import java.util.Observable;
 import java.util.Scanner;
+import mongoDB.DB;
 
 /**
  *
@@ -44,11 +46,7 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public String verifyLogin(String na , String pa) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     
 
     @Override
@@ -56,8 +54,75 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public Boolean verifyLogin(int category, int id, String password) {
+        DB db=new DB();
+        UnirestTest ap=new UnirestTest();
+        String encPass= ap.api(password);
+        System.out.println("enter 1 for customer, 2 for vendor, 3 for admin, 4 for customer service");
+        switch(category)
+        {
+            
+            case 1:
+                Customer cust = db.getCustomerByID(id);
+                if(cust==null)
+                {
+                    System.out.println("wrong id");
+                    return false;
+                }
+                else if (cust.getPassword()==encPass)
+                {
+                    System.out.println("login ok");
+                    return true;
+                } 
+                break;
+            case 2:
+                Vendor vend = db.getVendorBySSN(id);
+                if(vend==null)
+                {
+                    System.out.println("wrong id");
+                    return false;
+                }
+                else if (vend.getPassword()==encPass)
+                {
+                    System.out.println("login ok");
+                    return true;
+                } 
+                break;
+            case 3:
+                systemAdmin admin = db.getAdmin();
+                if(admin==null)
+                {
+                    System.out.println("wrong id");
+                    return false;
+                }
+                else if (admin.getPassword()==encPass)
+                {
+                    System.out.println("login ok");
+                    return true;
+                } 
+                break;
+            case 4:
+                customerService custserv = db.getcustomerServiceBySSN(id);
+                if(custserv==null)
+                {
+                    System.out.println("wrong id");
+                    return false;
+                }
+                if (custserv.getPassword()==encPass)
+                {
+                    System.out.println("login ok");
+                    return true;
+                } 
+                break;
+            default:
+                break;
+        }
+            
+        return true;
+    }    }
+
   
     
 
     
-}
