@@ -50,17 +50,22 @@ public class GameOnlineStoreSystem {
 
     public static void main(String[] args)throws RemoteException, AlreadyBoundException  {
         // TODO code application logic here
-        AccountManager manager=new AccountManager();
-        Vendor vendor=new Vendor(1," "," "," "," "," "," "," ");
+        Customer cust=new Customer(1,"nasr city","fatma","mekhemer","0455544665","fatma147380@bue.edu.eg","fatma","1234");
+         // public Customer(int customerID, String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
+         DB db = new DB();
+         db.insertCustomer(cust);
+         AccountManager manager=new AccountManager();
+        Vendor vendor=new Vendor(11,"nasr city","fatma","mekhemer","0455544665","fatma147380@bue.edu.eg","fatma","1234");
         systemAdmin admin= systemAdmin.getInstanceOfAdmin();
-        customerService service=new customerService(2," "," "," "," "," "," "," ");
+        customerService service=new customerService(111,"nasr city","fatma","mekhemer","0455544665","fatma147380@bue.edu.eg","fatma","1234");
+       
 
-        ClientFacade facade=new clientFacadee(manager,vendor,admin,service);
+      ClientFacade facade=new clientFacadee(manager,vendor,admin,service,cust);
         dbManager dd= dbManager.getInstanceOfdbManager();
          // An RMI Registry initialized on port 1099
         Registry reg = LocateRegistry.createRegistry(1099);
         
-        // Our remote object facade is binded to the name "customer"
+        //Our remote object facade is binded to the name "customer"
         reg.bind("username",facade );
         reg.bind("password", facade);
         reg.bind("Cancel", facade);
@@ -73,7 +78,7 @@ public class GameOnlineStoreSystem {
         
         // Publish to client
        
-        reg.bind("facade", new gameonlinestoresystem.clientFacadee(manager,vendor,admin,service));
+       // reg.bind("facade", new gameonlinestoresystem.clientFacadee(manager,vendor,admin,service));
        reg.bind("dd",new gameonlinestoresystem.dbManager() );
         
         System.out.println("Server is ready");
@@ -87,7 +92,7 @@ public class GameOnlineStoreSystem {
         System.out.println("The server is ready");
         //dbInsertion();
 
-        DB db = new DB();
+
        
         ArrayList<Category> Category = db.getAllCategories();
 

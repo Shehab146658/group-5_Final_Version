@@ -26,12 +26,14 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
     private final systemAdmin admin;
     private final customerService service;
     private final AccountManager manager;
+    private final Customer customer;
    
-    public clientFacadee(AccountManager manager,Vendor vendor,systemAdmin admin,customerService service) throws RemoteException {
+    public clientFacadee(AccountManager manager,Vendor vendor,systemAdmin admin,customerService service,Customer customer) throws RemoteException {
         this.manager=manager;
         this.vendor=vendor;
         this.admin=admin;
         this.service=service;
+        this.customer=customer;
     }
 
   

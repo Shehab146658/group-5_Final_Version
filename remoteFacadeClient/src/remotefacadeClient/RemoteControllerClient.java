@@ -64,7 +64,7 @@ public class RemoteControllerClient {
          
         // Get the remote facade reference
         
-        //ClientFacade Admin= (ClientFacade) reg.lookup("facade");
+        ClientFacade Admin= (ClientFacade) reg.lookup("facade");
         
         // Print items
          addItemManager(reg);

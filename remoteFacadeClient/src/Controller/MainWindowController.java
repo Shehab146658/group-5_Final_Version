@@ -245,12 +245,13 @@ public class MainWindowController {
               
               if(gui.jRadioButton1().isSelected())
               {
-                int id;
-                 //  id = Integer.toString(gui.getjTextField1().getText());
+                
+                 int  id =Integer.parseInt(gui.getjTextField1().getText());
+                
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
                     String customer=Boolean.toString(facade.verifyLogin(1, 2, "123")) ;
+                    
                gui.getjLabel2().setText(customer);
-               
                   cv.setLocationRelativeTo(null);
                  cv.setVisible(true);
                  gui.dispose();
@@ -263,6 +264,7 @@ public class MainWindowController {
                    String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
               //   gui.getjLabel2().setText(facade.verifyLogin(username, password));
+                  String customer=Boolean.toString(facade.verifyLogin(2, 2, "123")) ;
                  VendorForm vf= new VendorForm();
                  vf.setLocationRelativeTo(null);
                   vf.setVisible(true);
@@ -274,6 +276,7 @@ public class MainWindowController {
                     String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
                //  gui.getjLabel2().setText(facade.verifyLogin(username, password));
+                  String customer=Boolean.toString(facade.verifyLogin(3, 2, "123")) ;
                  AdminForm ad= new AdminForm();
                  ad.setLocationRelativeTo(null);
                   ad.setVisible(true);
@@ -286,6 +289,7 @@ public class MainWindowController {
                     String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
                 // gui.getjLabel2().setText(facade.verifyLogin(username, password));
+                  String customer=Boolean.toString(facade.verifyLogin(4, 2, "123")) ;
                  customerServiceForm vf= new customerServiceForm();
                  vf.setLocationRelativeTo(null);
                   vf.setVisible(true);
