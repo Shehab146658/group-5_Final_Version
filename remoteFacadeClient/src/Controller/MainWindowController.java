@@ -79,7 +79,6 @@ public class MainWindowController {
       gui.getjButton1().addActionListener(new GetCustomerBtnAction());
 
       gui.getButton2().addActionListener(new Cancelbtn());
-      vendor.getjButton1().addActionListener(new GetVendorBtnAction());
       vendor.getjButton3().addActionListener(new GetVendorBtnAction());
       vendor.getjButton6().addActionListener(new GetVendorBtnAction());
 
@@ -144,13 +143,7 @@ public class MainWindowController {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            if(vendor.getjButton1().isSelected())
-            {
-                ItemsGUI items = new ItemsGUI();
-                
-                
-            }
-            else if(vendor.getjButton3().isSelected())
+             if(vendor.getjButton3().isSelected())
             {
                 ItemsGUI items = new ItemsGUI();
                 items.setVisible(true);
@@ -158,13 +151,25 @@ public class MainWindowController {
             }
             else if(vendor.getjButton6().isSelected())
             {
+                ItemsGUI items = new ItemsGUI();
                 vendor.setVisible(false); 
-                gui.setVisible(true);
+                items.setVisible(true);
             }
             
         }
 
 
+    }
+    class GetViewItemBtnAction implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) 
+        {
+            
+        }
+        
+        
     }
 
     
@@ -239,7 +244,7 @@ public class MainWindowController {
                 String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
                 
-                 gui.getjLabel2().setText(facade.Login());
+                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
                
                   cv.setLocationRelativeTo(null);
                  cv.setVisible(true);
@@ -252,7 +257,7 @@ public class MainWindowController {
               {
                    String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                 gui.getjLabel2().setText(facade.Login());
+                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
                  VendorForm vf= new VendorForm();
                  vf.setLocationRelativeTo(null);
                   vf.setVisible(true);
@@ -263,7 +268,7 @@ public class MainWindowController {
               {
                     String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                 gui.getjLabel2().setText(facade.Login());
+                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
                  AdminForm ad= new AdminForm();
                  ad.setLocationRelativeTo(null);
                   ad.setVisible(true);
@@ -275,7 +280,7 @@ public class MainWindowController {
               {
                     String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                 gui.getjLabel2().setText(facade.Login());
+                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
                  customerServiceForm vf= new customerServiceForm();
                  vf.setLocationRelativeTo(null);
                   vf.setVisible(true);
