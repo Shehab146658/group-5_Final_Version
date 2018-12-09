@@ -37,7 +37,7 @@ public class DB {
         // Initialize
         client = new MongoClient();
         // Database name
-        database = client.getDatabase("GS"); 
+        database = client.getDatabase("shehab"); 
         
         //collections
         collectionCategory = database.getCollection("category"); 
@@ -97,6 +97,7 @@ public class DB {
     public boolean insertCustomer(Customer c)
     {
         collectionCustomer.insertOne(Document.parse(gson.toJson(c)));
+        System.out.println("Customer is inserted");
         return true;
     }
 

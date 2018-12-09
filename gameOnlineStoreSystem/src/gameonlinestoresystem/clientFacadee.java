@@ -60,33 +60,7 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public Boolean verifyLogin(int category, int id, String password) {
-        DB db=new DB();
-        UnirestTest ap=new UnirestTest();
-        String encPass= ap.api(password);
-        System.out.println("testing");
-                Customer cust = db.getCustomerByID(id);
-                
-                System.out.println(cust.getPassword());
-                System.out.println(encPass);
-                if(cust==null)
-                {
-                    System.out.println("id doesn't exist");
-                    return false;
-                }
-                else if (cust.getPassword()==encPass)
-                {
-                    System.out.println("login ok");
-                    return true;
-                } 
-                else
-                {
-                    System.out.println("login failed");
-                    return false;
-                }
-                
-    }  
+    
     public String api(String password)
     {
         try{
@@ -106,6 +80,29 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
             return "Exception: " + e.getMessage();
             
         }
+        
+    }
+
+    @Override
+    public Boolean verifyLogin(int category, int id, String password) throws RemoteException {
+        DB db=new DB();
+        UnirestTest ap=new UnirestTest();
+        String encPass= ap.api(password);
+        System.out.println("testing");
+        Customer cust = db.getCustomerByID(id);
+        cust.setPassword(encPass);
+        System.out.println(cust.getPassword());
+        System.out.println(encPass);
+        if(cust==null)
+        {
+            System.out.println("id doesn't exist");
+            return false;
+        }
+        else if (cust.getPassword().equals(encPass));
+        {
+            System.out.println("login ok");
+            return true;
+        } 
         
     }
 
