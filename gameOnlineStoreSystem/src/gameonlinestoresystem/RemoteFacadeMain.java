@@ -23,6 +23,7 @@ public class RemoteFacadeMain {
         //db.insertCustomer(cust);
         AccountManager manager=new AccountManager();
         manager.createAccount(1,"nasr city","fatma","mekhemer","0455544665","fatma147380@bue.edu.eg","fatma","1234",123,1);
+        manager.createAccount(1,"nasr city","fatma","mekhemer","0455544665","fatma147380@bue.edu.eg","fatma","12345",124,1);
         Vendor vendor=new Vendor(11,"nasr city","fatma","mekhemer","0455544665","fatma147380@bue.edu.eg","fatma","1234");
         systemAdmin admin= systemAdmin.getInstanceOfAdmin();
         customerService service=new customerService(111,"nasr city","fatma","mekhemer","0455544665","fatma147380@bue.edu.eg","fatma","1234");
@@ -34,7 +35,7 @@ public class RemoteFacadeMain {
         
         // Publish to client
         Registry reg = LocateRegistry.createRegistry(1099);
-        reg.bind("facade", new clientFacadee(manager,vendor,admin,service,db.getCustomerByID(123)));
+        reg.bind("facade", new clientFacadee(manager,vendor,admin,service,db.getCustomerByID(124)));
         
         System.out.println("Server is ready");
         

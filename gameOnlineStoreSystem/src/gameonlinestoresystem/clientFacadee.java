@@ -84,25 +84,25 @@ public class clientFacadee extends UnicastRemoteObject implements ClientFacade {
     }
 
     @Override
-    public Boolean verifyLogin(int category, int id, String password) throws RemoteException {
+    public Boolean verifyLogin(int category, int id, String password) throws RemoteException 
+    {
         DB db=new DB();
         UnirestTest ap=new UnirestTest();
         String encPass= ap.api(password);
-        System.out.println("testing");
+        System.out.println("logging in");
         Customer cust = db.getCustomerByID(id);
-        cust.setPassword(encPass);
-        System.out.println(cust.getPassword());
-        System.out.println(encPass);
-        if(cust==null)
-        {
-            System.out.println("id doesn't exist");
+        
+        String encPass1=cust.getPassword();
+        System.out.println(encPass1);
+        System.out.println(encPass);   
+        
+        if(!encPass1.equals(encPass)) {
+            System.out.println("login failed");
             return false;
-        }
-        else if (cust.getPassword().equals(encPass));
-        {
-            System.out.println("login ok");
+        } else {
+            System.out.println("login successful");
             return true;
-        } 
+        }
         
     }
 

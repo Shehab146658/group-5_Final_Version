@@ -33,7 +33,7 @@ public class RemoteFacadeClient {
        ClientFacade facade = (ClientFacade ) reg.lookup("facade");
         
         
-        System.out.println(facade.verifyLogin(123, 123,"123"));
+        System.out.println(facade.verifyLogin(124, 124,"1234"));
 
         // Edit the address and print the new one
       //   myAddress.setAddress("Ahmed Tayseer St", "Heliopolis", "Cairo", "Egypt");
