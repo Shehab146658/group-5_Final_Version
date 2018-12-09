@@ -1,4 +1,3 @@
-
 package testcase;
 /**
  *
@@ -20,6 +19,14 @@ public class TestCase {
         assertEquals(true,result);
 
     }
+    @Test
+    public void Register()
+    {
+        DB db= new DB();
+        AccountManager reg= new AccountManager();
+        boolean res= reg.createAccount(2, "rehab", "fatma", "mkhemar", "89274746", "fatma@yahoo.com", "fatma", "rwuyr8wh", 6546, 864);
+        assertEquals(true,res);
+    }
 
         @Test
     public void GetOrderTESTING()
@@ -30,7 +37,7 @@ public class TestCase {
     }
     
         @Test
-    public void deleteshoppingCartTESTING()
+    public void retreiveshoppingCartTESTING()
     {
         DB db= new DB();    
         shoppingCart x= db.getshoppingCartByID(1);
@@ -39,5 +46,3 @@ public class TestCase {
     }
     
 }
-
-

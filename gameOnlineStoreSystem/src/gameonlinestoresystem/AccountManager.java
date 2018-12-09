@@ -20,21 +20,21 @@ public class AccountManager {
     
      
     
-    public void createAccount(int accType,String address, String firstName, String lastName, String mobileNumber, String email, String username, String password,int customerID,int ssn)
+    public boolean createAccount(int accType,String address, String firstName, String lastName, String mobileNumber, String email, String username, String password,int customerID,int ssn)
     {
         DB db=new DB();
         switch (accType){
         case 1:
                 Customer cust = new Customer(customerID,address,firstName,lastName,mobileNumber,email,username,password);
                 db.insertCustomer(cust);
-                break;
+                return true;
         case 2: 
             Vendor vend = new Vendor(ssn,address,firstName,lastName,mobileNumber,email,username,password);
             db.insertVendor(vend);
-            break;
+            return true;
         default:
+            return true;
             
-            break;
         }
     }
        
