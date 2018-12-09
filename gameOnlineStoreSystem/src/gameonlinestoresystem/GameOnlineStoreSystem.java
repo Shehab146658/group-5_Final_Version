@@ -23,8 +23,8 @@ public class GameOnlineStoreSystem {
      * @param args the command line arguments
      */
 
-   // private static void dbInsertion() {
-      /*  DB db = new DB();
+   /* private static void dbInsertion() {
+        DB db = new DB();
         Category action = new Category("1", "action");
         Category arcade = new Category("2", "arcade");
         Category sports = new Category("3", "sports");
@@ -56,6 +56,7 @@ public class GameOnlineStoreSystem {
         customerService service=new customerService();
         
         ClientFacade facade=new clientFacadee(manager,vendor,admin,service);
+        dbManager dd= dbManager.getInstanceOfdbManager();
          // An RMI Registry initialized on port 1099
         Registry reg = LocateRegistry.createRegistry(1099);
         
@@ -63,6 +64,19 @@ public class GameOnlineStoreSystem {
         reg.bind("username",facade );
         reg.bind("password", facade);
         reg.bind("Cancel", facade);
+        reg.bind("add item",dd);
+        
+      
+        
+        // Set data
+//        service.notify();
+        
+        // Publish to client
+       
+        reg.bind("facade", new gameonlinestoresystem.clientFacadee(manager,vendor,admin,service));
+       reg.bind("dd",new gameonlinestoresystem.dbManager() );
+        
+        System.out.println("Server is ready");
         
         
         
@@ -73,15 +87,13 @@ public class GameOnlineStoreSystem {
         System.out.println("The server is ready");
         //dbInsertion();
 
-      /*  DB db = new DB();
+        DB db = new DB();
        
         ArrayList<Category> Category = db.getAllCategories();
-=======
->>>>>>> 4291db015be86f15b33c6b3eeb6555261a97f3ee
+
         
-        
-    }*/
+    }
     
 
 }
-}
+

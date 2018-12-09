@@ -60,6 +60,8 @@ public class RemoteControllerClient {
         // Connect to RMI Registry
    
         dbManagerINT manageDB=(dbManagerINT)reg.lookup("database");
+         dbManagerINT di=( dbManagerINT)reg.lookup("add item");
+         
         // Get the remote facade reference
         
         //ClientFacade Admin= (ClientFacade) reg.lookup("facade");

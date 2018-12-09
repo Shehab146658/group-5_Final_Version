@@ -17,7 +17,7 @@ public class dbManager extends UnicastRemoteObject implements dbManagerINT{
     private static dbManager Manager;
     DB db=new DB();
 
-    private dbManager()throws RemoteException {}
+    public dbManager()throws RemoteException {}
     public static dbManager getInstanceOfdbManager() throws RemoteException
     {
         if(Manager==null)
@@ -28,9 +28,10 @@ public class dbManager extends UnicastRemoteObject implements dbManagerINT{
     }
     
     @Override
-    public void addNewItem(int price,String name)throws RemoteException
+    public String addNewItem(int price,String name)throws RemoteException
     {
         Item item1 = new Item(price,name);
         db.insertItem(item1);
+        return "item inserted successfully";
     }
 }

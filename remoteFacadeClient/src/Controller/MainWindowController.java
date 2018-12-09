@@ -17,7 +17,8 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import RMI.ClientFacade;
-import RMI.itemInterface;
+import gameonlinestoresystem.dbManagerINT;
+
 
 import gameonlinestoresystem.dbManagerINT;
 import javax.swing.JOptionPane;
@@ -102,10 +103,13 @@ public class MainWindowController {
         @Override
         public void actionPerformed(ActionEvent ae) {
             try{
-                int price = 0;
-                String name = null;
-                itemInterface item=(itemInterface)r.lookup("addItem");
-                               item.addnewItem(price,name);
+               
+               
+               
+               dbManagerINT di=( dbManagerINT)r.lookup("add item");
+                                                         
+                              admin.getLabel1().setText(   di.addNewItem(12,"fatma"));
+                            System.out.println("item added");
                               JOptionPane.showMessageDialog(admin, "item added successfully");
 
                                
@@ -239,7 +243,7 @@ public class MainWindowController {
                 String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
                 
-                 gui.getjLabel2().setText(facade.Login());
+                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
                
                   cv.setLocationRelativeTo(null);
                  cv.setVisible(true);
@@ -252,7 +256,7 @@ public class MainWindowController {
               {
                    String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                 gui.getjLabel2().setText(facade.Login());
+                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
                  VendorForm vf= new VendorForm();
                  vf.setLocationRelativeTo(null);
                   vf.setVisible(true);
@@ -263,7 +267,7 @@ public class MainWindowController {
               {
                     String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                 gui.getjLabel2().setText(facade.Login());
+                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
                  AdminForm ad= new AdminForm();
                  ad.setLocationRelativeTo(null);
                   ad.setVisible(true);
@@ -275,7 +279,7 @@ public class MainWindowController {
               {
                     String username= gui.getjTextField1().getText();
                 String password=String.valueOf(gui.getJpasswordField().getPassword());
-                 gui.getjLabel2().setText(facade.Login());
+                 gui.getjLabel2().setText(facade.verifyLogin(username, password));
                  customerServiceForm vf= new customerServiceForm();
                  vf.setLocationRelativeTo(null);
                   vf.setVisible(true);

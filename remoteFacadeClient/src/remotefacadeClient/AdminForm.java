@@ -6,6 +6,7 @@
 package remotefacadeClient;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -135,6 +136,10 @@ public class AdminForm extends javax.swing.JFrame {
     public JButton getButton1()
     {
         return jButton1;
+    }
+    public JLabel getLabel1()
+    {
+        return jLabel1;
     }
     /**
      * @param args the command line arguments
