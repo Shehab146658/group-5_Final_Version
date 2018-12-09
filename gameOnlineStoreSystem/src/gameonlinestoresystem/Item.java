@@ -82,11 +82,7 @@ public void rateItem(Item i, int rate)
     }
 }
 
-@Override
-public void rate(int id, int rating)
-{
-   
-}
+
 
     @Override
     public void viewItemsDetails()
