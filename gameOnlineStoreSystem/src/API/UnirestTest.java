@@ -27,9 +27,14 @@ import sun.net.www.http.HttpClient;
  * @author Dell
  */
 public class UnirestTest {
-     public static void main(String[] args) 
-     {    
-         try{
+
+    public UnirestTest() {
+    }
+    
+    public String api(String password)
+    {
+        try{
+            
              SSLContext sslcontext = SSLContexts.custom()
                     .loadTrustMaterial(null, new TrustSelfSignedStrategy())
                     .build();
@@ -38,10 +43,15 @@ public class UnirestTest {
                     .setSSLSocketFactory(sslsf)
                     .build();
             Unirest.setHttpClient(httpclient);
-                HttpResponse<JsonNode>response= Unirest.post("http://usfngm.com/login.php?password=test/post").queryString("password","098f6bcd4621d373cade4e832627b4f6").asJson();
+                HttpResponse<JsonNode>response= Unirest.post("http://usfngm.com/login.php?password="+password+"/post").queryString("password","098f6bcd4621d373cade4e832627b4f6").asJson();
                 System.out.println(response.getBody());
+                return response.getBody().toString();
             }catch (Exception e) {
-            System.out.println("Exception: " + e.getMessage());
+            return "Exception: " + e.getMessage();
+            
         }
-}
+        
+    }
+       
+
 }

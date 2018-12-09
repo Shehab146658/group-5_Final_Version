@@ -13,8 +13,8 @@ import java.rmi.Remote;
  */
 public interface itemInterface extends Remote{
     
-    public String  addnewItem(int price, String name);
-    public String  updateItem(int price, String name);
-    public String deleteItem(int price, String name);
+    public String  addnewItem(int price, String name, int itemID);
+    public String  updateItem(int price, String name,int itemID);
+    public String deleteItem(int price, String name,int itemID);
     
 }

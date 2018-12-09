@@ -16,7 +16,7 @@ import javax.swing.*;
 import javax.swing.event.*;  
 import mongoDB.DB;
 public class ItemsInfo  {
-      JFrame f; 
+      /*JFrame f; 
        ItemsInfo(){    
     f=new JFrame();
  //String managerid,address,firstname,midname,lastname,homenumber,phonenumber;
@@ -42,11 +42,12 @@ public class ItemsInfo  {
     f.setSize(300,400);    
     f.setVisible(true); 
     
-}
+}*/
        public static void main(String[] args) {    
-    new ItemsInfo();  
-    DB db=new DB();
-    
+    //new ItemsInfo();  
+    //DB db=new DB();
+    AccountManager ac=new AccountManager();
+    ac.verifyLogin(1, 12, "password");
     //System.out.println("retrived: "+db.getTheCurrentAdmins());
 }  
 }

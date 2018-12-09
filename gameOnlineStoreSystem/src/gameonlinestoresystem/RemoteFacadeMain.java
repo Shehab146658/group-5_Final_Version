@@ -17,7 +17,7 @@ import java.rmi.registry.Registry;
 public class RemoteFacadeMain {
      public static void main(String[] args) throws RemoteException, AlreadyBoundException{
          AccountManager manager=new AccountManager();
-        Vendor vendor=new Vendor(" ");
+        Vendor vendor=new Vendor();
         systemAdmin admin= systemAdmin.getInstanceOfAdmin();
         customerService service=new customerService();
         

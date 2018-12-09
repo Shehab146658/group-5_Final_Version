@@ -13,50 +13,51 @@ import mongoDB.DB;
  *
  * @author Dell
  */
-public class systemAdmin implements Observer , View_item , item_adder , delete_items{
+public class systemAdmin extends Person implements Observer , View_item , item_adder , delete_items{
     private static systemAdmin Admin;
     private static int observeridtracker;
     private int observerid;
     ArrayList<Item> items = new ArrayList<Item>();
-    private systemAdmin(){}
+
+    private systemAdmin(int observerid, String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
+        super(address, firstName, lastName, mobileNumber, email, username, password);
+        this.observerid = observerid;
+    }
+    
     public static systemAdmin getInstanceOfAdmin()
     {
         if(Admin==null)
         {
-            Admin= new systemAdmin();
+            Admin= new systemAdmin(1,"cairo","ahmed","ahmed","+100000002","admin@bue","admin","admin");
         }
         return Admin;
     }
 
-    public static systemAdmin getAdmin() {
-        return Admin;
+
+    public void addAccount(int accType,String address, String firstName, String lastName, String mobileNumber, String email, String username, String password,int customerID,int ssn)
+    {
+        DB db=new DB();
+        switch (accType){
+        case 1:
+                Customer cust = new Customer(customerID,address,firstName,lastName,mobileNumber,email,username,password);
+                db.insertCustomer(cust);
+                break;
+        case 2: 
+                Vendor vend = new Vendor(ssn,address,firstName,lastName,mobileNumber,email,username,password);
+                db.insertVendor(vend);
+                break;
+        case 3:
+            customerService cs= new customerService( ssn,  address,  firstName,  lastName,  mobileNumber,  email,  username,  password);
+            db.insertcustomerService(cs);
+            break;
+        default:
+            break;
+        }
     }
+    
+    
 
-    public static void setAdmin(systemAdmin Admin) {
-        systemAdmin.Admin = Admin;
-    }
-
-   public void addAcc(Customer c, Vendor v,customerService cs)
-   {
-       if(c.getCustomerID()==null)
-       {
-           DB db = new DB();
-           db.insertCustomer(c);
-       }  
-       if(v.getSSN()==null)
-       {
-           
-           DB db = new DB();
-           db.insertVendor(v);
-       }  
-       if(cs.SSN==null)
-       {
-           DB db = new DB();
-           db.insertcustomerService(cs);
-       }  
-   }
-
-   public void updateAcc(Customer c,Vendor v, customerService cs, String CustomerID, String vendorSSN, String csID)
+   public void updateAcc(int i,int CustomerID, int vendorSSN, int csID)
    {
        DB db = new DB();
        db.updateCustomer(c, csID);

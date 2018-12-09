@@ -101,7 +101,7 @@ public class DB {
         System.out.println("Customer inserted.");
     }
 
-    public void deleteCustomer(String id) {
+    public void deleteCustomer(int id) {
         boolean result = collectionCustomer.deleteOne(Filters.eq("customerID", id)).wasAcknowledged();
         if (result) {
             System.out.println("Customer Deleted.");
@@ -110,7 +110,7 @@ public class DB {
         }
     }
 
-    public Customer getCustomerByID(String id) {
+    public Customer getCustomerByID(int id) {
         Document doc = collectionCustomer.find(Filters.eq("customerID", id)).first();
         Customer result = gson.fromJson(doc.toJson(), Customer.class);
         return result;
@@ -125,7 +125,7 @@ public class DB {
         return result;
     }
 
-    public void updateCustomer(Customer c,String id) {
+    public void updateCustomer(Customer c,int id) {
         Document doc = Document.parse(gson.toJson(c));
         boolean result = collectionCustomer.replaceOne(Filters.eq("customerID", id), doc).wasAcknowledged();
         if (result) {
@@ -142,7 +142,7 @@ public class DB {
         System.out.println("Order inserted.");
     }
 
-    public void deleteOrder(String id) {
+    public void deleteOrder(int id) {
         boolean result = collectionOrder.deleteOne(Filters.eq("OrderID", id)).wasAcknowledged();
         if (result) {
             System.out.println("Order Deleted.");
@@ -151,7 +151,7 @@ public class DB {
         }
     }
 
-    public Order getOrderByID(String id) {
+    public Order getOrderByID(int id) {
         Document doc = collectionOrder.find(Filters.eq("OrderID", id)).first();
         Order result = gson.fromJson(doc.toJson(), Order.class);
         return result;
@@ -166,7 +166,7 @@ public class DB {
         return result;
     }
 
-    public void updateOrder(Order c,String id) {
+    public void updateOrder(Order c,int id) {
         Document doc = Document.parse(gson.toJson(c));
         boolean result = collectionOrder.replaceOne(Filters.eq("OrderID", id), doc).wasAcknowledged();
         if (result) {
@@ -182,7 +182,7 @@ public class DB {
         System.out.println("Vendor inserted.");
     }
 
-    public void deleteVendor(Vendor id) {
+    public void deleteVendor(int id) {
         boolean result = collectionVendor.deleteOne(Filters.eq("OrderID", id)).wasAcknowledged();
         if (result) {
             System.out.println("Vendor Deleted.");
@@ -191,9 +191,9 @@ public class DB {
         }
     }
 
-    public Order getVendorBySSN(String id) {
+    public Vendor getVendorBySSN(int id) {
         Document doc = collectionVendor.find(Filters.eq("SSN", id)).first();
-        Order result = gson.fromJson(doc.toJson(), Order.class);
+        Vendor result = gson.fromJson(doc.toJson(), Vendor.class);
         return result;
     }
 
@@ -206,7 +206,7 @@ public class DB {
         return result;
     }
 
-    public void updateVendor(Vendor c,String id) {
+    public void updateVendor(Vendor c,int id) {
         Document doc = Document.parse(gson.toJson(c));
         boolean result = collectionVendor.replaceOne(Filters.eq("SSN", id), doc).wasAcknowledged();
         if (result) {
@@ -222,7 +222,7 @@ public class DB {
         System.out.println("customer Service inserted.");
     }
 
-    public void deletecustomerService(customerService id) {
+    public void deletecustomerService(int id) {
         boolean result = collectioncustomerService.deleteOne(Filters.eq("SSN", id)).wasAcknowledged();
         if (result) {
             System.out.println("customerService Deleted.");
@@ -231,7 +231,7 @@ public class DB {
         }
     }
 
-    public customerService getcustomerServiceBySSN(String id) {
+    public customerService getcustomerServiceBySSN(int id) {
         Document doc = collectioncustomerService.find(Filters.eq("SSN", id)).first();
         customerService result = gson.fromJson(doc.toJson(), customerService.class);
         return result;
@@ -246,7 +246,7 @@ public class DB {
         return result;
     }
 
-    public void updatecustomerService(customerService c,String id) {
+    public void updatecustomerService(customerService c,int id) {
         Document doc = Document.parse(gson.toJson(c));
         boolean result = collectioncustomerService.replaceOne(Filters.eq("SSN", id), doc).wasAcknowledged();
         if (result) {
@@ -261,14 +261,18 @@ public class DB {
         collectionsysAdmin.insertOne(Document.parse(gson.toJson(c)));
         System.out.println("system Admin inserted.");
     }
-
+    public systemAdmin getAdmin() {
+        Document doc = collectionTicket.find().first();
+        systemAdmin result = gson.fromJson(doc.toJson(), systemAdmin.class);
+        return result;
+    }
     public void insertItem(Item c) {
-        collectionItem.insertOne(Document.parse(gson.toJson(c)));
+        collectionCategory.insertOne(Document.parse(gson.toJson(c)));
         System.out.println("Item inserted.");
     }
 
-    public void deleteItem(Item id) {
-        boolean result = collectionItem.deleteOne(Filters.eq("itemID", id)).wasAcknowledged();
+    public void deleteItem(int id) {
+        boolean result = collectionCategory.deleteOne(Filters.eq("itemID", id)).wasAcknowledged();
         if (result) {
             System.out.println("Item Deleted.");
         } else {
@@ -277,7 +281,7 @@ public class DB {
     }
 
     public Item getItemByID(int id) {
-        Document doc = collectionItem.find(Filters.eq("itemID", id)).first();
+        Document doc = collectionCategory.find(Filters.eq("itemID", id)).first();
         Item result = gson.fromJson(doc.toJson(), Item.class);
         return result;
     }
@@ -318,7 +322,7 @@ public class DB {
         }
     }
 
-    public Ticket getTicketByID(String id) {
+    public Ticket getTicketByID(int id) {
         Document doc = collectionTicket.find(Filters.eq("ID", id)).first();
         Ticket result = gson.fromJson(doc.toJson(), Ticket.class);
         return result;
@@ -333,7 +337,7 @@ public class DB {
         return result;
     }
 
-    public void updateTicket(Ticket c,String id) {
+    public void updateTicket(Ticket c,int id) {
         Document doc = Document.parse(gson.toJson(c));
         boolean result = collectionTicket.replaceOne(Filters.eq("ID", id), doc).wasAcknowledged();
         if (result) {
@@ -349,7 +353,7 @@ public class DB {
         System.out.println("shoppingCart inserted.");
     }
 
-    public boolean deleteshoppingCart(shoppingCart id) {
+    public boolean deleteshoppingCart(int id) {
         boolean result = collectionshoppingCart.deleteOne(Filters.eq("cartID", id)).wasAcknowledged();
         if (result) {
             System.out.println("shoppingCart Deleted.");
@@ -360,7 +364,7 @@ public class DB {
         }
     }
 
-    public shoppingCart getshoppingCartByID(String id) {
+    public shoppingCart getshoppingCartByID(int id) {
         Document doc = collectionTicket.find(Filters.eq("cartID", id)).first();
         shoppingCart result = gson.fromJson(doc.toJson(), shoppingCart.class);
         return result;
@@ -375,7 +379,7 @@ public class DB {
         return result;
     }
 
-    public void updateshoppingCart(shoppingCart c,String id) {
+    public void updateshoppingCart(shoppingCart c,int id) {
         Document doc = Document.parse(gson.toJson(c));
         boolean result = collectionshoppingCart.replaceOne(Filters.eq("cartID", id), doc).wasAcknowledged();
         if (result) {

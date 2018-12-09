@@ -80,7 +80,6 @@ public class MainWindowController {
       gui.getjButton1().addActionListener(new GetCustomerBtnAction());
 
       gui.getButton2().addActionListener(new Cancelbtn());
-      vendor.getjButton1().addActionListener(new GetVendorBtnAction());
       vendor.getjButton3().addActionListener(new GetVendorBtnAction());
       vendor.getjButton6().addActionListener(new GetVendorBtnAction());
 
@@ -148,13 +147,7 @@ public class MainWindowController {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            if(vendor.getjButton1().isSelected())
-            {
-                ItemsGUI items = new ItemsGUI();
-                
-                
-            }
-            else if(vendor.getjButton3().isSelected())
+             if(vendor.getjButton3().isSelected())
             {
                 ItemsGUI items = new ItemsGUI();
                 items.setVisible(true);
@@ -162,13 +155,25 @@ public class MainWindowController {
             }
             else if(vendor.getjButton6().isSelected())
             {
+                ItemsGUI items = new ItemsGUI();
                 vendor.setVisible(false); 
-                gui.setVisible(true);
+                items.setVisible(true);
             }
             
         }
 
 
+    }
+    class GetViewItemBtnAction implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) 
+        {
+            
+        }
+        
+        
     }
 
     
