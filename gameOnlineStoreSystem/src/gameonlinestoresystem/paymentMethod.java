@@ -10,5 +10,5 @@ package gameonlinestoresystem;
  * @author shebo
  */
 public interface paymentMethod {
-    public void pay( );
+    public void pay(int amount );
 }

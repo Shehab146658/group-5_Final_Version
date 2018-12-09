@@ -11,14 +11,9 @@ package gameonlinestoresystem;
  */
 public class payPal implements paymentMethod{
     private String PayPalNum;
-    private float amount;
     private boolean isPayed;
     private float balance;
     
-    public void pay(String num) {
-        PayPalNum= num;
-        
-    }
     public String check() {
         if(PayPalNum.length()!=16)
             return "Invalid Number";
@@ -29,7 +24,7 @@ public class payPal implements paymentMethod{
     }
 
     @Override
-    public void pay() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void pay(int amount) {
+        System.out.println("you have paid "+amount+" via paybal");
     }
 }

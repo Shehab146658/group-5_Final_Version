@@ -15,8 +15,8 @@ public class CreditCard implements paymentMethod{
     private boolean isPayed;
     private float balance;
     @Override
-    public void pay() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void pay(int amount) {
+       System.out.println(""+amount+"have my withdrwan from your criedt");
     }
     public boolean validateCard()
     {

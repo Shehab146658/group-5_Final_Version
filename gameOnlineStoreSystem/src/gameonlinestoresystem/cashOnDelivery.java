@@ -10,13 +10,12 @@ package gameonlinestoresystem;
  * @author shebo
  */
 public class cashOnDelivery implements paymentMethod{
-    public float amount;
-    public Boolean isPaid;
+   
 
 
     @Override
-    public void pay() {
-       System.out.println( "Pay on Delivery" + this.amount);
+    public void pay(int amount) {
+       System.out.println( "Pay on Delivery" + amount);
     }
     
 }
