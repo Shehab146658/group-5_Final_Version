@@ -4,41 +4,43 @@
  * and open the template in the editor.
  */
 package gameonlinestoresystem ;
+import mongoDB.*;
+import gameonlinestoresystem.Item;
+import java.rmi.RemoteException;
+import java.rmi.server.RMIClientSocketFactory;
+import java.rmi.server.RMIServerSocketFactory;
+import java.rmi.server.UnicastRemoteObject;
 
 /**
  *
  * @author meran
  */
-public class vendorTransferObject extends Remote {
-    private String itemID;
-    private String Description;
-    private String vendorID;
-    private Vendor v;
+public class vendorTransferObject extends UnicastRemoteObject {
+    private static vendorTransferObject vendor;
+    DB db = new DB();
 
-    public vendorTransferObject(String itemID, String Description, String vendorID, Vendor v) {
-        this.itemID = itemID;
-        this.Description = Description;
-        this.vendorID = vendorID;
-        this.v = v;
+    private vendorTransferObject() throws RemoteException {
     }
+    public static vendorTransferObject getInstanceOfVendor() throws RemoteException
+    {
+        if(vendor==null)
+        {
+            vendor= new vendorTransferObject();
+        }
+        return vendor;
+    }
+    public void insertVendor(Vendor c)
+    {
+        db.insertVendor(c);
+    }
+    public void deleteVendor(Vendor id) 
+    {
+        db.deleteVendor(id);
+    }
+    public void updateVendor(Vendor c,String id)
+    {
+        db.updateVendor(c, id);
+    }
+  
 
-    public String getItemID() {
-        return itemID;
-    }
-
-    public void setItemID(String itemID) {
-        this.itemID = itemID;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String Description) {
-        this.Description = Description;
-    }
-    
-    
-    
-    
 }

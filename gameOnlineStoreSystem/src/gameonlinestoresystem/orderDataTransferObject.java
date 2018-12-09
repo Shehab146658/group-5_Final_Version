@@ -1,26 +1,49 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gameonlinestoresystem;
+import mongoDB.*;
+import gameonlinestoresystem.Item;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 /**
  *
  * @author meran
  */
-public class orderDataTransferObject extends Remote {
-    private String orderID;
-    private String status;
+public class orderDataTransferObject extends UnicastRemoteObject implements orderDTOinterface{
+    private static orderDataTransferObject order;
+    DB db = new DB();
 
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public orderDataTransferObject() throws RemoteException {
     }
     
+    public static orderDataTransferObject getInstanceOfItem() throws RemoteException
+    {
+        if(order==null)
+        {
+            order= new orderDataTransferObject();
+        }
+        return order;
+    }
     
+    public void insertOrder(Order c)
+    {
+        db.insertOrder(c);
+    }
+    public void deleteOrder(String id)
+    {
+        db.deleteOrder(id);
+    }
+    public Order getOrderByID(String id)
+    {
+        return db.getOrderByID(id);
+    }
+    public ArrayList<Order> getAllOrders()
+    {
+        return db.getAllOrders();
+    }
+    public void updateOrder(Order c,String id)
+    {
+        db.updateOrder(c, id);
+    } 
     
 }

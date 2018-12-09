@@ -17,7 +17,6 @@ public class ItemDataTransferObject  extends UnicastRemoteObject implements item
     {
           
     }
-
     public static ItemDataTransferObject getInstanceOfItem() throws RemoteException
     {
         if(item==null)
@@ -33,6 +32,15 @@ public class ItemDataTransferObject  extends UnicastRemoteObject implements item
         db.insertItem(i);
         return"item Inserted Successfully";
     }
+
+    public void deleteItem(Item id)
+    {
+        db.deleteItem(id);        
+    }
+    public void updateItem(Item c,String id)
+    {
+        db.updateItem(c, id);
+    }
     public String updateItem(int price, String name,int itemID)
     {
          Item i = new Item(price,name);
@@ -46,6 +54,6 @@ public class ItemDataTransferObject  extends UnicastRemoteObject implements item
         
     }
 
-    
+   
     
 }
