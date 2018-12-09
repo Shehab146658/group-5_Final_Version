@@ -30,23 +30,6 @@ final ItemComponent item;
         this.categoryName = categoryName;
         this.item = item;
         ArrayList<Item> items = new ArrayList<Item>();
-        item= new ItemComponent() {
-
-            
-           
-           
-
-            @Override
-            public void viewItemsDetails() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void rate(int id, int rating) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        };
-       
     }
 
     public String getCategoryID() {
@@ -64,7 +47,6 @@ final ItemComponent item;
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
-
 
     public void addAnItem(Item item)
     {
