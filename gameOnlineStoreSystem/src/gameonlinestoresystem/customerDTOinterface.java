@@ -10,8 +10,8 @@ import java.util.ArrayList;
  */
 public interface customerDTOinterface extends Remote{
     public void insertCustomer(Customer c);
-    public void deleteCustomer(String id);
-    public Customer getCustomerByID(String id);
+    public void deleteCustomer(int id);
+    public Customer getCustomerByID(int id);
     public ArrayList<Customer> getAllCustomers();
-    public void updateCustomer(Customer c,String id);
+    public void updateCustomer(Customer c,int id);
 }

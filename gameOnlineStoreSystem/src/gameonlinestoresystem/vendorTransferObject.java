@@ -33,11 +33,11 @@ public class vendorTransferObject extends UnicastRemoteObject {
     {
         db.insertVendor(c);
     }
-    public void deleteVendor(Vendor id) 
+    public void deleteVendor(int id) 
     {
         db.deleteVendor(id);
     }
-    public void updateVendor(Vendor c,String id)
+    public void updateVendor(Vendor c,int id)
     {
         db.updateVendor(c, id);
     }

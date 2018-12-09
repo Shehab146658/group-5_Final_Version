@@ -29,11 +29,11 @@ public class customerDTO extends UnicastRemoteObject implements customerDTOinter
     {
         db.insertCustomer(c);
     }
-    public void deleteCustomer(String id)
+    public void deleteCustomer(int id)
     {
         db.deleteCustomer(id);
     }
-    public Customer getCustomerByID(String id)
+    public Customer getCustomerByID(int id)
     {
         return db.getCustomerByID(id);
     }
@@ -41,7 +41,7 @@ public class customerDTO extends UnicastRemoteObject implements customerDTOinter
     {
         return db.getAllCustomers();
     }
-    public void updateCustomer(Customer c,String id)
+    public void updateCustomer(Customer c,int id)
     {
         db.updateCustomer(c, id);
     }

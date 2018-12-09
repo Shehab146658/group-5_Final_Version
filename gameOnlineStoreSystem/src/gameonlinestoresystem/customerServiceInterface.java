@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public interface customerServiceInterface extends Remote{
     public void insertcustomerService(customerService c);
-    public void deletecustomerService(customerService id);
-    public customerService getcustomerServiceBySSN(String id);
+    public void deletecustomerService(int id);
+    public customerService getcustomerServiceBySSN(int id);
     public ArrayList<customerService> getAllcustomerService();
-    public void updatecustomerService(customerService c,String id);
+    public void updatecustomerService(customerService c,int id);
 }

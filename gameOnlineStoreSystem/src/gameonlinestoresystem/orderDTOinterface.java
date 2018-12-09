@@ -10,8 +10,8 @@ import java.util.ArrayList;
  */
 public interface orderDTOinterface extends Remote{
     public void insertOrder(Order c);
-    public void deleteOrder(String id);
-    public Order getOrderByID(String id);
+    public void deleteOrder(int id);
+    public Order getOrderByID(int id);
     public ArrayList<Order> getAllOrders();
-    public void updateOrder(Order c,String id);
+    public void updateOrder(Order c,int id);
 }

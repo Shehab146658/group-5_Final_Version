@@ -29,11 +29,11 @@ public class orderDataTransferObject extends UnicastRemoteObject implements orde
     {
         db.insertOrder(c);
     }
-    public void deleteOrder(String id)
+    public void deleteOrder(int id)
     {
         db.deleteOrder(id);
     }
-    public Order getOrderByID(String id)
+    public Order getOrderByID(int id)
     {
         return db.getOrderByID(id);
     }
@@ -41,7 +41,7 @@ public class orderDataTransferObject extends UnicastRemoteObject implements orde
     {
         return db.getAllOrders();
     }
-    public void updateOrder(Order c,String id)
+    public void updateOrder(Order c,int id)
     {
         db.updateOrder(c, id);
     } 

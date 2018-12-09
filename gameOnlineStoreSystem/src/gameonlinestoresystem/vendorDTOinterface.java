@@ -13,6 +13,6 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 public interface vendorDTOinterface extends Remote {
     public void insertVendor(Vendor c);
-    public void deleteVendor(Vendor id);
-    public void updateVendor(Vendor c,String id);
+    public void deleteVendor(int id);
+    public void updateVendor(Vendor c,int id);
 }

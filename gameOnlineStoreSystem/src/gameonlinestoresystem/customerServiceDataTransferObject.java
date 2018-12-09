@@ -31,11 +31,11 @@ public class customerServiceDataTransferObject extends UnicastRemoteObject imple
     {
         db.insertcustomerService(c);
     }
-    public void deletecustomerService(customerService id)
+    public void deletecustomerService(int id)
     {
         db.deletecustomerService(id);
     }
-    public customerService getcustomerServiceBySSN(String id)
+    public customerService getcustomerServiceBySSN(int id)
     {
         return db.getcustomerServiceBySSN(id);    
     }
@@ -43,7 +43,7 @@ public class customerServiceDataTransferObject extends UnicastRemoteObject imple
     {
         return db.getAllcustomerService();
     }
-    public void updatecustomerService(customerService c,String id) {
+    public void updatecustomerService(customerService c,int id) {
         db.updatecustomerService(c, id);
     }
     

@@ -33,11 +33,11 @@ public class ItemDataTransferObject  extends UnicastRemoteObject implements item
         return"item Inserted Successfully";
     }
 
-    public void deleteItem(Item id)
+    public void deleteItem(int id)
     {
         db.deleteItem(id);        
     }
-    public void updateItem(Item c,String id)
+    public void updateItem(Item c,int id)
     {
         db.updateItem(c, id);
     }
