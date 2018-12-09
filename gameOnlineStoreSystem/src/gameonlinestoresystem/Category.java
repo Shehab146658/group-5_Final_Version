@@ -61,48 +61,29 @@ final ItemComponent item;
         db.deleteItem(id);
     }
 
-  public Item getChild(Item i,Category c)
-  {
-     i.viewItemsDetails();
-      return i;
-  }
-
-    
-
- @Override
- public void viewItemsDetails()
-{
-    for(int i=0;i<items.size();i++)
+    public Item getChild(Item i,Category c)
     {
-        System.err.println("Name"+items.get(i).getName()+" "+"price"+items.get(i).getPrice()+"  "+"Customers Rating "+items.get(i).getRate());
+       i.viewItemsDetails();
+        return i;
     }
- }
 
-@Override
-public void rate(int id, int rating) 
-{
-    DB db = new DB();
-    Item item =db.getItemByID(id);
-    item.setRate(rating);
-    db.deleteItem(id);
-    db.insertItem(item);
-}
-    //@Override
-   /* public String toString() {
-        
-        String result = "categoryID=" + categoryID 
-                + ",  categoryName=" + categoryName
-                + ", items=" + items
-                + ", item=" + item + '}';
-        for (int i = 0; i < items.size(); i++) {
-            result += "\n   Course ID: " + items.get(i).getItemID()
-                    + "\n   Course Name: " + items.get(i).getName()
-                    + "\n";
-        }
-        return result;
-    }*/
+   @Override
+   public void viewItemsDetails()
+  {
+      for(int i=0;i<items.size();i++)
+      {
+          System.err.println("Name"+items.get(i).getName()+" "+"price"+items.get(i).getPrice()+"  "+"Customers Rating "+items.get(i).getRate());
+      }
+   }
 
-           
-
-           
+  @Override
+  public void rate(int id, int rating) 
+  {
+      DB db = new DB();
+      Item item =db.getItemByID(id);
+      item.setRate(rating);
+      db.deleteItem(id);
+      db.insertItem(item);
+  }
+          
 }

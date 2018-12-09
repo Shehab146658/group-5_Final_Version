@@ -17,7 +17,7 @@ public class CategoryDTO extends UnicastRemoteObject implements CategoryDTOinter
     DB db = new DB();
     Category c;
 
-    private CategoryDTO() throws RemoteException {
+    CategoryDTO() throws RemoteException {
     }
     public static CategoryDTO getInstanceOfItem() throws RemoteException
     {

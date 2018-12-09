@@ -1,5 +1,7 @@
 package gameonlinestoresystem;
 
+import mongoDB.DB;
+
 /*
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
@@ -58,28 +60,13 @@ public void setRate(int rate) {
 
 
 
-public void rateItem(Item i, int rate)
+public void rate(int id, int rating) 
 {
-     i.getItemID();
-    switch(rate)
-    {
-        case 1:
-
-            System.out.println("very bad");
-            break;
-        case 2:
-            System.out.println("bad");
-            break;
-        case 3:
-            System.out.println("Good");
-            break;
-        case 4:
-            System.out.println("very good");
-            break;
-        case 5:
-            System.out.println("Perfect");
-            break;
-    }
+    DB db = new DB();
+    Item item =db.getItemByID(id);
+    item.setRate(rating);
+    db.deleteItem(id);
+    db.insertItem(item);
 }
 
 

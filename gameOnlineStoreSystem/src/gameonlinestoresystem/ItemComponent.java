@@ -11,6 +11,6 @@ package gameonlinestoresystem;
  */
 interface ItemComponent {
     public void viewItemsDetails();
-    public void rateItem(Item i, int rate);
+    public void rate(int id, int rating);
     
 }
