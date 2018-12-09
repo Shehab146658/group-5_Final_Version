@@ -56,16 +56,39 @@ public class Customer extends Person implements Observer,paymentMethod, OrderSta
 
     @Override
     public void pay(int x) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                     CreditCard c= new CreditCard();
+                     payPal p= new payPal();
+                     cashOnDelivery cash=new cashOnDelivery();
+                     System.out.println("press 1 for credit card payment , press 2 for pay pal payment ,press 3 for cash on delivery payment");
+                     switch(x)
+                     {    
+                         case 1:
+                             c.pay(x);
+                             System.out.println("payment of credit card is done");
+                             break;
+                         case 2:
+                             p.pay(x);
+                              System.out.println("payment of pay pal is done");
+                             break;
+                         case 3:
+                             cash.pay(x);
+                              System.out.println("payment of cash on delivery is done");
+                             break;
+                         default:
+                            break;
+                             
+                     }
     }
 
     @Override
     public String getOrderID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+               Order o=new Order();
+               return "order id is "+o.getOrderID();
+        }
 
     @Override
     public String getOrderStatus(int orderID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          Order o=new Order();
+               return "order id is "+o.getOrderStatus();
     }
 }

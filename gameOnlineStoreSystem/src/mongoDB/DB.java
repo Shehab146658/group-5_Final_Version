@@ -94,11 +94,10 @@ public class DB {
         }
     }
 
-    
-    
-    public void insertCustomer(Customer c) {
+    public boolean insertCustomer(Customer c)
+    {
         collectionCustomer.insertOne(Document.parse(gson.toJson(c)));
-        System.out.println("Customer inserted.");
+        return true;
     }
 
     public void deleteCustomer(int id) {

@@ -11,54 +11,33 @@ import mongoDB.*;
 import org.junit.*;  
 
 public class TestCase {
-    public void getCategoryByNameTESTING(Category c)
-    {
-        DB d1= new DB();
-        assertEquals(c.getCategoryName(),d1.getCategoryByName(c.getCategoryName()));
-                               
-    } 
-         @Test
-    public void updateTicketTESTING(Ticket c,int id)
+    @Test
+    public void insertCustomer()
     {
         DB db= new DB();
-        assertEquals(c,db.getTicketByID(id));
+        systemAdmin x= systemAdmin.getInstanceOfAdmin();
+        boolean result= x.addAccount(1, "cairo", "meran", "sharawy", "232431114", "meran148368@bue", "meran", "87y3uhawd", 148368, 563);
+        assertEquals(true,result);
+
     }
-        
-    //public void deleteshoppingCartTESTING(shoppingCart s)
-    //{
-    //    DB db= new DB();
-     //   db.deleteshoppingCart(s);
-     //   assertNull(s);
-    //}
-        
+
         @Test
-    public void GetTicketTESTING(Ticket c,int id)
+    public void GetOrderTESTING()
     {
         DB db= new DB();
-        assertEquals(c,db.getTicketByID(id));
+        Order x= db.getOrderByID(2);
+        assertEquals("pending",x.getOrderStatus());
     }
     
         @Test
-    public void deleteshoppingCartTESTING(int s)
+    public void deleteshoppingCartTESTING()
     {
-        DB db= new DB();            
-        assertEquals(true,db.deleteshoppingCart(s) ); 
+        DB db= new DB();    
+        shoppingCart x= db.getshoppingCartByID(1);
+        assertEquals(1,x.itemID ); 
 
     }
     
-   @Test
-   public void insertItemTESTING(Item i)
-   {
-       DB db= new DB();
-
-       db.insertItem(i);
-       assertNotNull(i);
-   }
-    
-
-       //int x = i.getItemID(); 
-       //assertNotNull(db.getItemByID(x)); 
 }
-   
 
 

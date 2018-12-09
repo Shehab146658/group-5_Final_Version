@@ -5,11 +5,13 @@
  */
 package gameonlinestoresystem;
 
+import java.rmi.Remote;
+
 /**
  *
  * @author meran
  */
-public class customerServiceTransferObject extends Remote{
+public class customerServiceTransferObject implements Remote{
     private String csutomerServiceID;
     private String Message;
     private customerService x;
