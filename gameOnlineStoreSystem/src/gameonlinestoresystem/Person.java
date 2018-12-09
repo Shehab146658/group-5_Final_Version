@@ -28,16 +28,7 @@ public class Person {
         this.password = password;
     }
     
-    public void Regiseter(String address, String firstName, String lastName, String mobileNumber, String email, String username, String password)
-    {
-        setAddress(address);
-        setFirstName(firstName);
-        setLastName (lastName);
-        setMobileNumber(mobileNumber);
-        setEmail(email);
-        setUsername(username);
-        setPassword(password);    
-    }
+    
     public Person viewAccountInfo()
     {
         return this;

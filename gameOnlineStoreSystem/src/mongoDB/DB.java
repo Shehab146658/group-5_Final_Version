@@ -191,9 +191,9 @@ public class DB {
         }
     }
 
-    public Order getVendorBySSN(int id) {
+    public Vendor getVendorBySSN(int id) {
         Document doc = collectionVendor.find(Filters.eq("SSN", id)).first();
-        Order result = gson.fromJson(doc.toJson(), Order.class);
+        Vendor result = gson.fromJson(doc.toJson(), Vendor.class);
         return result;
     }
 
@@ -261,7 +261,11 @@ public class DB {
         collectionsysAdmin.insertOne(Document.parse(gson.toJson(c)));
         System.out.println("system Admin inserted.");
     }
-
+    public systemAdmin getAdmin() {
+        Document doc = collectionTicket.find().first();
+        systemAdmin result = gson.fromJson(doc.toJson(), systemAdmin.class);
+        return result;
+    }
     public void insertItem(Item c) {
         collectionCategory.insertOne(Document.parse(gson.toJson(c)));
         System.out.println("Item inserted.");

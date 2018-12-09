@@ -10,8 +10,8 @@ package gameonlinestoresystem;
  * @author Dell
  */
 import java.util.*;
-public class customerService implements Observer , AddTicket  {
-    public String SSN;
+public class customerService extends Person implements Observer , AddTicket  {
+    public int SSN;
     private static int observeridtracker;
     private int observerid;
     private Subject s = new Order();
@@ -26,17 +26,18 @@ public class customerService implements Observer , AddTicket  {
         s.addObserver(this);
     }*/
 
-    
-
-    public customerService() {
+    public customerService(int SSN, String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
+        super(address, firstName, lastName, mobileNumber, email, username, password);
+        this.SSN = SSN;
+        
     }
     
 
-    public String getSSN() {
+    public int getSSN() {
         return SSN;
     }
 
-    public void setSSN(String SSN) {
+    public void setSSN(int SSN) {
         this.SSN = SSN;
     }
 

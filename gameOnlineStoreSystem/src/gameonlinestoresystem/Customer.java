@@ -12,18 +12,22 @@ import java.util.Observer;
  *
  * @author Dell
  */
-public class Customer implements Observer,paymentMethod, OrderState {
-    private String customerID;
+public class Customer extends Person implements Observer,paymentMethod, OrderState {
+    private int customerID;
     shoppingCart sc = new shoppingCart();
 
-    public Customer() {
+    public Customer(int customerID, String address, String firstName, String lastName, String mobileNumber, String email, String username, String password) {
+        super(address, firstName, lastName, mobileNumber, email, username, password);
+        this.customerID = customerID;
     }
+
+    
     
 
-    public String getCustomerID() {
+    public int getCustomerID() {
         return customerID;
     }
-    public void setCustomerID(String customerID) {
+    public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
    
@@ -34,9 +38,9 @@ public class Customer implements Observer,paymentMethod, OrderState {
     }
     public void createTicket(String customerID,String Description)
     {
-        AddTicket add = new customerService();
+//        AddTicket add = new customerService();
         Ticket t = new Ticket(customerID,Description);
-        add.setTickect(t);
+      //  add.setTickect(t);
         
     }
     
