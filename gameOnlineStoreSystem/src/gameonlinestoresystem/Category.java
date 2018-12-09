@@ -29,17 +29,22 @@ final ItemComponent item;
         this.categoryID = categoryID;
         this.categoryName = categoryName;
         this.item = item;
+        ArrayList<Item> items = new ArrayList<Item>();
         item= new ItemComponent() {
 
+            
+           
+           
+
             @Override
-            public void rateItem(Item i, int rate) {}
-            @Override
-            public void viewItemsDetails(Item i, Category c)
-            {
-                
+            public void viewItemsDetails() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
+
             @Override
-            public void rate(Item i) {}
+            public void rate(int id, int rating) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
         };
        
     }
@@ -63,59 +68,43 @@ final ItemComponent item;
 
     public void addAnItem(Item item)
     {
-      Category.add(item);
+      DB db = new DB();
+      db.insertItem(item);
     }   
  
-    public void removeItem(Item i) {
-          if(i.getItemID()!=0)
-          {
-             Category.remove(i);
-          }
-        
+    public void removeItem(Item i) 
+    {
+        int id = i.getItemID();
+        DB db = new DB();
+        db.deleteItem(id);
     }
 
   public Item getChild(Item i,Category c)
   {
-     i.viewItemsDetails(i, c);
+     i.viewItemsDetails();
       return i;
   }
 
-    @Override
-            public void rateItem(Item i, int rate) {
-                  i.getItemID();
-        switch(rate)
-        {
-            case 1:
-              
-                System.out.println("very bad");
-                break;
-            case 2:
-                System.out.println("bad");
-                break;
-            case 3:
-                System.out.println("Good");
-                break;
-            case 4:
-                System.out.println("very good");
-                break;
-            case 5:
-                System.out.println("Perfect");
-                break;
-        }
-            }
+    
 
-            @Override
-            public void viewItemsDetails(Item i, Category c) {
-              c.getCategoryID();
-              i.getItemID();
-              i.getRate();
-            }
+ @Override
+ public void viewItemsDetails()
+{
+    for(int i=0;i<items.size();i++)
+    {
+        System.err.println("Name"+items.get(i).getName()+" "+"price"+items.get(i).getPrice()+"  "+"Customers Rating "+items.get(i).getRate());
+    }
+ }
 
-            @Override
-            public void rate(Item i) {
-                 i.rateItem(i, i.getRate());
-            }
-
+@Override
+public void rate(int id, int rating) 
+{
+    DB db = new DB();
+    Item item =db.getItemByID(id);
+    item.setRate(rating);
+    db.deleteItem(id);
+    db.insertItem(item);
+}
     //@Override
    /* public String toString() {
         

@@ -10,8 +10,7 @@ package gameonlinestoresystem;
  * @author meran
  */
 interface ItemComponent {
-    public void rateItem(Item i, int rate);
-    public void viewItemsDetails(Item i,Category c);
-    public void rate(Item i);
+    public void viewItemsDetails();
+    public void rate(int id, int rating);
     
 }

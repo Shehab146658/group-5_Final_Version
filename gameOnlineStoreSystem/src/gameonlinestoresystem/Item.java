@@ -82,15 +82,18 @@ public void rateItem(Item i, int rate)
     }
 }
 
-public void rate(Item i)
+@Override
+public void rate(int id, int rating)
 {
-   i.rateItem(i, rate);
+   
 }
 
-public void viewItemsDetails(Item i, Category c) {
-    c.getCategoryID();
-    i.getItemID();
-    i.getRate();
-}
+    @Override
+    public void viewItemsDetails()
+    {
+        
+    }
+
+
 }
 
